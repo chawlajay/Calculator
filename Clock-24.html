@@ -1,0 +1,39 @@
+<html>
+<head>
+<title> Clock </title>
+
+<script language="javascript" type="text/javascript">
+function gettime()
+{
+	var today=new Date();
+	var h=today.getHours();
+	var m=today.getMinutes();
+	var s=today.getSeconds();
+    
+    
+    m=checktime(m);
+    s=checktime(s);
+    
+    document.getElementById("myclock").innerHTML= h + ":" + m + ":" + s ;
+    var t=setTimeout(gettime,1000);
+}
+function checktime(t)
+{
+	if(t<10)t="0"+t;
+	return t;
+}
+</script>
+
+</head>
+<body onload="gettime()">
+<br>
+<div style="color: blue; height: 20%; width: 100%; text-align: center; font-size: 70px;">
+<b> Current time is :</b>
+<br>
+<p id="myclock"></p>
+	</div>
+
+</body>
+
+
+</html>
