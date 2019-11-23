@@ -1,0 +1,294 @@
+<html>
+<head>
+	<title>Validation</title>
+<style>
+
+.tableclass{
+	border: 4px solid rgb(35, 37, 199);
+    background-color: lightblue;
+}
+
+/* CSS for Input Tag */
+input, select {
+  width :100%;
+  padding: 10px 10px;
+  margin: 5px;
+   
+  border: 1px solid yellow;
+  border-radius: 40px;
+  outline: none;
+  font-size: 20px;
+}
+
+/* CSS for Input Tag type Text on focus*/
+input[type=text]:focus{
+	background-color: black;
+    color:yellow;  
+}
+
+/* CSS for Input Tag type email on focus*/
+input[type=email]:focus{
+	background-color: #fcba03;
+    color:black;  
+}
+
+
+input[type=radio]
+{
+	width: 10%;
+}
+/* CSS for Input Tag type Radio and Checkbox*/
+input[type=checkbox]
+{
+	width: 10%;
+}
+
+
+/* CSS for tag td (table Data)*/
+td{
+	text-align: left;
+	padding :5px;
+	margin :15px;
+	font-size: 25px;
+    
+}
+
+
+/* CSS for Input Tag type Button*/
+button{
+	width:100%;
+ padding: 10px 10px;
+  margin: 5px 0;
+  /* display: inline; */
+  border: 1px solid yellow;
+  border-radius: 40px;
+  outline: none;
+  font-size: 20px;
+}
+
+
+form{
+	padding:40px;
+}
+
+body{
+	background-color: chocolate;
+	
+}
+</style>
+</head>
+<body>
+<form name="form" onsubmit="return func()" >
+
+<center>
+
+<table class="tableclass">	
+<tr>
+<td colspan='2' style="font-size: 30px; color:rgb(124, 13, 9); text-align: center"><i><u>Submit Form</u></i>
+<hr>
+</td>
+
+</tr>
+<tr>
+	<td><label>Username*  </label></td>
+	<td><input type="text" name="un" maxlength="12" minlength="7"></td>
+</tr>
+<tr>
+	<td><label>Password* </label></td>
+	<td><input type="Password" name="psd"></td>
+</tr>
+<tr>
+	<td><label>Confirm Password* </label></td>
+	<td><input type="Password" name="con_psd" ></td>
+</tr>
+
+<tr>
+	<td><label>First Name*  </label></td>
+	<td><input type="text" name="firstname"></td>
+</tr>
+
+<tr>
+	<td><label>Last Name  </label></td>
+	<td><input type="text" name="lastname" disabled></td>
+</tr>
+<tr>
+	<td><label>Age*</label></td>
+	<td><input type="number" name="age" required></td>
+</tr>
+<tr>
+	<td><label>Email*</label></td>
+	<td><input type="Email" name="email" value="" required></td>
+</tr>
+
+<tr>
+	<td><label>Phone </label></td>
+	<td><input type="number" name="phone"></td>
+</tr>
+
+<tr>
+	<td><label>Fax </label></td>
+	<td><input type="number" name="fax" disabled></td>
+</tr>
+
+<tr>	 
+	<td><label>Date Of Birth :</label></td>
+	<td><input type="date" name="birthdate" ></td>
+</tr>
+<tr>
+	<td><label>Website </label></td>
+	<td><input type="url" name="website"></td>
+</tr>
+
+<tr>
+	<td><label>Country </label></td>
+	<td><select name="country">
+		<option name='India' value="India">India</option>
+		<option name='Russia' value="Russia">Russia</option>
+		<option name='Sri Lanka' value="Sri Lanka">Sri Lanka</option>
+		<option name='Australia' value="Australia">Australia</option>
+		<option name='New Zealand' value="New Zealand">New Zealand</option>
+	</select></td>
+</tr>
+
+<tr>
+<td><label>Gender</label></td>
+<td><input type="radio" name="gender" value="Male" checked>Male 
+	<input type="radio" name="gender" value="Female"> Female
+
+</td>
+	</tr>
+<tr>
+<td><label>Disclaimer*</label>  </td>
+<td> <input type="checkbox" name="disclaimer" checked></td>
+</tr>
+
+
+<tr>
+	<td><button type="button" name="display" onclick="disp()">Display</button></td>
+	<td><input type="Submit" name="submit" value="Submit"></td>
+</tr>
+</table>
+
+
+
+
+</center>
+</form>
+</body>
+
+<script>
+
+function disp(){
+var x=document.forms["form"];
+var str="";
+for(var i=0; i<x.length-2; i++)
+{
+	if(x[i].name!="gender" && x[i].name!="disclaimer")
+	{
+
+		str=str+x[i].name+" :- "+x[i].value+ "\n" ;
+	}
+	else
+	{
+		if(x[i].checked==true)
+		str=str+x[i].name+" :- "+x[i].value+ "\n" ;
+	}
+
+     
+}
+
+
+alert(str);
+
+}
+
+function func()
+{
+	var d=validate();
+	if(d==true)
+	{
+	alert("Your data has been validated!!!!");
+	return  true;
+	}
+	else
+	return false;
+}
+
+
+function validator(elem) {
+	var a=true;
+   
+   if(elem.name=="un")
+    {
+
+		
+      var alphaExp = /^[a-zA-Z]+$/;
+
+
+  	  if(elem.value.match(alphaExp));
+	  else 
+	  {
+		  alert("Only Alphabets are allowed in Username !");
+		  a=false;
+	  }
+
+    }
+	else if (elem.name == "psd") {
+                       if (!elem.value.match("[A-Za-z0-9]{5,10}")) {
+				alert("Password must be between 5 to 10 characters ");
+				return false;
+            }
+        } else if (elem.name == "con_psd") {
+
+			psw = document.forms["form"]["psd"].value;
+            if (elem.value != psw) {
+				
+
+				
+				alert("Confirmation password does not match");
+				a=false;
+            }
+        } else if (elem.name == "age") {
+            if (elem.value < 23) {
+				alert("Sorry You are not Above 22");
+				a=false;
+            }
+        } else if (elem.name == "email") {
+            if (!elem.value.match("\^[A-Za-z0-9_]+@[A-Za-z]+\.[A-Za-z]{2,}")) {
+				alert("Please enter valid email");
+				a=false;
+            }
+        } else if (elem.name == "phone") {
+            if (elem.value.toString().length!=10 && elem.value.toString().length!=0 ) {
+				alert("Not a valid phone number");
+				a=false;
+            }
+        }
+return a;
+    }
+
+    function validate() {
+		var b=true;
+
+	   
+
+		for (var i = 1; i <form.length - 2; i++) {
+			
+			if(validator(form[i])==false)
+			b=false;
+
+			
+		}
+		
+		return b;
+    }
+    // document.getElementById('submit').addEventListener('click', validate);
+
+
+
+
+
+	</script>
+
+
+</html>
