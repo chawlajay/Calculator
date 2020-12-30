@@ -1,0 +1,69 @@
+/* extra css */
+#body_background{
+background-image: linear-gradient(to right,#001D36,#33D8F5);
+}
+.nav {
+padding: 10px;
+margin:10px;
+border-radius: 5px;
+font-size: 25px;
+/*background-color: hsl(10deg,10%,10%);*/
+background-image: linear-gradient(to right,#001D36,hsl(10deg,10%,10%));
+}
+
+.nav-link{
+    color:#90BCEB;
+}
+
+.introduction h2,.history h2, .rules h2, .basics h2, .morse_code h2{
+    /*background-color:#02256B;*/
+    background-image: linear-gradient(to right,#0448D1,#02256B);
+    width:7em;
+    border-radius: 0.5em;
+    color: #90BCEB;
+    text-align: center;
+}
+.intro_content,.history_content,.rules_content, .basics_content, .row{
+    font-size: 20px;
+    /*border: 0px black;
+    border-style:unset;*/
+    border-radius: 5px;
+    padding: 15px;
+    /*background-color:#0075DB;*/
+    background-image: linear-gradient(to right,#0075DB,#33D8F5); 
+}
+
+.morse_code .row{
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.morse_code{
+    padding-bottom: 15px;
+}
+
+.morse_code ul{
+    list-style-type:none;
+    font-size: 30px;
+}
+
+hr{
+    width:90%;
+    background-color:white;
+}
+.history , .rules , .basics{
+    margin-top:10px;
+    margin-bottom: 10px;
+}
+
+.basics_content h3{
+    text-align: center;
+}
+
+.note{
+    border:2px #0B2F36 dotted;
+    border-radius: 5px;
+    padding: 5px;
+    margin-top: 50px;
+}
+
