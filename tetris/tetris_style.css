@@ -1,0 +1,13 @@
+html{
+    min-height: 100%;
+}
+body{
+    background: linear-gradient(to bottom,lightblue,lightgreen) no-repeat;
+}
+
+.grid{
+    width:200px;
+    height: 400px;
+    background-color: orange;
+    margin: 20px;
+}
