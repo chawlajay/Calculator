@@ -8,6 +8,14 @@ body{
 .grid{
     width:200px;
     height: 400px;
-    background-color: orange;
+    background-color: seagreen;
     margin: 20px;
+    display: flex;
+    flex-wrap:wrap;
+}
+
+.grid div{
+    height: 20px;
+    width: 20px;
+    background-color: red;
 }
