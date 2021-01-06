@@ -1,0 +1,4 @@
+1. querySelector()
+2. getElementById()
+3. insertAdjacentHTML()
+4. 
