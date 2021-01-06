@@ -66,7 +66,6 @@ document.addEventListener('DOMContentLoaded',()=>{
     // draw the tetromino
     function draw(){
         current.forEach(index => {
-            squares[currentPosition + index].classList.add('tetromino')
             squares[currentPosition + index].style.backgroundColor = colors[random]
         })
     }
@@ -74,7 +73,6 @@ document.addEventListener('DOMContentLoaded',()=>{
     // undraw the tetromino
     function undraw(){
         current.forEach(index => {
-            squares[currentPosition + index].classList.remove('tetromino')
             squares[currentPosition + index].style.backgroundColor = ''
         })
     }
@@ -191,12 +189,10 @@ document.addEventListener('DOMContentLoaded',()=>{
     function displayShape(){
         // first remove any trace of a tetromino from the entire grid
         displaySquares.forEach(square => {
-            square.classList.remove('tetromino')
             square.style.backgroundColor = ''
         })
 
         upNextTetrominoes[nextRandom].forEach(index => {
-            displaySquares[displayIndex + index].classList.add('tetromino')
             displaySquares[displayIndex + index].style.backgroundColor = colors[nextRandom]
         })
     }
@@ -233,14 +229,14 @@ document.addEventListener('DOMContentLoaded',()=>{
                 scoreDisplay.innerHTML=score
                 row.forEach(index => {
                     squares[index].classList.remove('taken')
-                    squares[index].classList.remove('tetromino')
                     squares[index].style.backgroundColor= ''
                 })
                 
                 const squaresRemoved = squares.splice(i,width)
                 squares=squaresRemoved.concat(squares)
                 squares.forEach(cell => grid.appendChild(cell))
-                
+                for(let j=0;j<10;j++)
+                console.log(squares[j])
             }
         }
     }
@@ -253,7 +249,6 @@ document.addEventListener('DOMContentLoaded',()=>{
             for(let i=0;i<=199;i++)
             {
                 squares[i].classList.remove('taken');
-                squares[i].classList.remove('tetromino');
                 squares[i].style.backgroundColor= ''
             }
             
