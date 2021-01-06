@@ -1,4 +1,4 @@
 1. querySelector()
 2. getElementById()
-3. insertAdjacentHTML()
-4. 
+3. insertAdjacentHTML(position,text)
+4. addEventListener("keyup",function(event){})
