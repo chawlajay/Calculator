@@ -1,15 +1,28 @@
 const clear=document.querySelector(".clear");
 
 const dateElement=document.getElementById("date");
+let today = new Date();
+let options = { weekday: 'long', month:'short', day:'numeric'};
+dateElement.innerHTML = today.toLocaleDateString("en-US",options);
 
 const list=document.getElementById("list");
 
 const input=document.getElementById("input_item");
 
-let LIST =[];
-let index=0;
+let LIST,index;
 
-// <i class="far fa-check-circle"></i>   when job is complete (try fad)
+let data = localStorage.getItem("TODO");
+	if(data)
+	{
+		LIST=JSON.parse(data);
+		loadToDo(LIST);
+		id=LIST.length;
+	}
+	else
+	{
+	LIST=[];
+	index=0;
+	}
 
 // classes required when event occurs (check,uncheck,delete)
 const CHECK="fa-check-circle";
@@ -32,6 +45,25 @@ const position = "beforeend";
 list.insertAdjacentHTML(position,text);
 }
 
+// function to interchange checked circle and unchecked circle when it is clicked
+function completeToDo(element){
+	element.classList.toggle(CHECK);
+	element.classList.toggle(UNCHECK);
+	element.parentNode.querySelector(".text").classList.toggle(LINE_THROUGH);
+
+	LIST[element.id].done = LIST[element.id].done ? false : true;
+}
+
+function removeToDo(element){
+	element.parentNode.parentNode.removeChild(element.parentNode);
+	LIST[element.id].trash=true;
+}
+
+function loadToDo(array){
+	array.forEach(function(item){
+		addToDo(item.name,item.id,item.done,item.trash);
+	});
+}
 
 document.addEventListener("keyup",function(event){
 
@@ -57,20 +89,28 @@ if(event.keyCode == 13)    // keycode of enter key is 13
 
 });
 
+// to remove or to complete a todo event on click is added
+list.addEventListener("click",(event) => {
+let element = event.target;  // when delete button is clicked, element value is <i class="far fa-trash-alt" job="delete" id="${id}"> </i>
+const elementJob = element.attributes.job.value;   // returns delete or complete
 
-// function to interchange checked circle and unchecked circle when it is clicked
-function completeToDo(element){
-	element.classList.toggle(CHECK);
-	element.classList.toggle(UNCHECK);
-	element.parentNode.querySelector(".text").classList.toggle(LINE_THROUGH);
-
-	LIST[element.id].done = LIST[element.id].done ? false : true;
+if(elementJob == "complete")
+{
+completeToDo(element);
+}
+else if(elementJob == "delete")
+{
+removeToDo(element);
 }
 
-function removeToDo(element){
-	element.parentNode.parentNode.removeChild(element.parentNode);
-	LIST[element.id].trash=true;
-}
+// store and update local storage
+localStorage.setItem("TODO",JSON.stringify(LIST));
+});
 
+// to clear the toDos on local storage when clear button is clicked
+clear.addEventListener("click",()=>{
+localStorage.clear();
+location.reload();      // reload the page
+});
 
 
