@@ -2,3 +2,6 @@
 2. getElementById()
 3. insertAdjacentHTML(position,text)
 4. addEventListener("keyup",function(event){})
+5. element.classList.toggle()
+6. element.parentNode.querySelector("")
+7. 
