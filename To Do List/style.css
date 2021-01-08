@@ -95,7 +95,7 @@ body{
     margin:0;
     font-size: 20px;
     left:50px;
-    top:5px;
+    top:10px;
     background-color: #FFF;
     max-width:285px;
 }
@@ -119,23 +119,30 @@ cursor: pointer;
 
 /*Add an item*/
 
-.fa-plus-circle{
-	margin-bottom: -5px;
-}
-
 .add-item{
 	background-color: white;
 	border-radius: 0 0 15px 15px;
     position: relative;
-    width: 360px;
+    width: 380px;
     height:40px;
     background-color: #FFF;
     padding: 10px;
     border-top: 1px solid rgba(0,0,0,0.1);
 }
 
-#input_item{
-	width:80%;
-	height: 30px;
-	margin-bottom: 10px;
+.add-item .fa-plus-circle{
+	position: absolute;
+    font-size: 40px;
+    color: #4162f6;
+}
+
+.add-item input{
+	position: absolute;
+    left: 50px;
+    height: 35px;
+    width: 330px;
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    padding-left:10px;
 }
