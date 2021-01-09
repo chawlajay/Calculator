@@ -9,6 +9,11 @@ const list=document.getElementById("list");
 
 const input=document.getElementById("input_item");
 
+// classes required when event occurs (check,uncheck,delete)
+const CHECK="fa-check-circle";
+const UNCHECK="fa-circle";
+const LINE_THROUGH="lineThrough";
+
 let LIST,index;
 
 let data = localStorage.getItem("TODO");
@@ -16,7 +21,8 @@ let data = localStorage.getItem("TODO");
 	{
 		LIST=JSON.parse(data);
 		loadToDo(LIST);
-		id=LIST.length;
+		index=LIST.length;
+		console.log(LIST);
 	}
 	else
 	{
@@ -24,26 +30,6 @@ let data = localStorage.getItem("TODO");
 	index=0;
 	}
 
-// classes required when event occurs (check,uncheck,delete)
-const CHECK="fa-check-circle";
-const UNCHECK="fa-circle";
-const LINE_THROUGH="lineThrough";
-
-
-function addToDo(toDo_item,id,done,trash){
-
-if(trash){
-	return;
-}
-
-const DONE = done ? CHECK : UNCHECK;   // to determine which circle icon to choose
-const LINE = done ? LINE_THROUGH : "";  // when done strike through the text
-
-const text= `<li class="item"><i class="far ${DONE}" job="complete" id="${id}"> </i> <p class="text ${LINE}"> ${toDo_item} </p> <i class="far fa-trash-alt" job="delete" id="${id}"> </i> </li>`; 
-const position = "beforeend";
-
-list.insertAdjacentHTML(position,text);
-}
 
 // function to interchange checked circle and unchecked circle when it is clicked
 function completeToDo(element){
@@ -65,6 +51,22 @@ function loadToDo(array){
 	});
 }
 
+function addToDo(toDo_item,id,done,trash){
+
+if(trash){
+	return;
+}
+
+const DONE = done ? CHECK : UNCHECK;   // to determine which circle icon to choose
+const LINE = done ? LINE_THROUGH : "";  // when done strike through the text
+
+const text= `<li class="item"><i class="far ${DONE}" job="complete" id="${id}"> </i> <p class="text ${LINE}"> ${toDo_item} </p> <i class="far fa-trash-alt" job="delete" id="${id}"> </i> </li>`; 
+const position = "beforeend";
+
+list.insertAdjacentHTML(position,text);
+}
+
+
 document.addEventListener("keyup",function(event){
 
 if(event.keyCode == 13)    // keycode of enter key is 13
@@ -82,9 +84,11 @@ if(event.keyCode == 13)    // keycode of enter key is 13
 				trash:false
 			}
 		);
+		localStorage.setItem("TODO",JSON.stringify(LIST));
 	}
 	input.value="";
 	index++;
+	console.log(LIST);
 }
 
 });
@@ -112,5 +116,3 @@ clear.addEventListener("click",()=>{
 localStorage.clear();
 location.reload();      // reload the page
 });
-
-
