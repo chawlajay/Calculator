@@ -9,6 +9,8 @@ const list=document.getElementById("list");	    // unordered list having list of
 
 const input=document.getElementById("input_item");    // input textbox element where we enter our todo
 
+const add_todo_icon = document.querySelector(".add_my_todo");
+
 // classes required when event occurs (check,uncheck,delete)
 const CHECK="fa-check-circle";					// display check circle icon when a todo is done
 const UNCHECK="fa-circle";						// display uncheck circle icon when todo is not done 
@@ -42,7 +44,7 @@ function completeToDo(element){
 
 // here element is the trash icon
 function removeToDo(element){
-	element.parentNode.parentNode.removeChild(element.parentNode);			// removes the li element - deletes it from the list
+	element.parentNode.parentNode.parentNode.removeChild(element.parentNode.parentNode);			// removes the li element - deletes it from the list
 	LIST[element.id].trash=true;
 }
 
@@ -63,8 +65,15 @@ if(trash){
 const DONE = done ? CHECK : UNCHECK;   // to determine which circle icon to choose
 const LINE = done ? LINE_THROUGH : "";  // when done strike through the text
 
-const text= `<li class="item"><i class="far ${DONE}" job="complete" id="${id}"> </i> <p class="text ${LINE}"> ${toDo_item} </p> <i class="far fa-trash-alt" job="delete" id="${id}"> </i> </li>`; 
-const position = "beforeend";   // position where to add a new text when user click enter in the input box after typing a todo item
+const text=`<li class="item">
+			<i class="far ${DONE}" job="complete" id="${id}"> </i>
+			<p class="text ${LINE}"> ${toDo_item} </p>
+			<div class="delete_my_todo tooltip_delete">
+				<i class="far fa-trash-alt" job="delete" id="${id}"> </i>
+				<span class="tooltip_text_delete">Delete</span>
+			</div>
+			</li>`; 
+const position = "afterBegin";   // position where to add a new text when user click enter in the input box after typing a todo item
 
 // adds a li element inside a ul element
 list.insertAdjacentHTML(position,text);
@@ -76,7 +85,7 @@ input.addEventListener("keyup",(event) => {
 	if(event.keyCode == 13 || event.code == 13)    // keycode of enter key is 13
 	{
 	const toDo = input.value;
-	console.log("Entered");
+	// console.log("Entered");
 		if(toDo)
 		{
 			addToDo(toDo,index,false,false);
@@ -124,3 +133,23 @@ clear.addEventListener("click",()=>{
 	}
 });
 
+
+add_todo_icon.addEventListener("click",() => {
+// console.log("blue icon clicked");
+const toDo = input.value;
+		if(toDo)
+		{
+			addToDo(toDo,index,false,false);
+			LIST.push(
+				{
+					name: toDo,
+					id: index,
+					done: false,
+					trash:false
+				}
+			);
+			localStorage.setItem("TODO",JSON.stringify(LIST));
+		}
+		input.value="";
+		index++;
+});
