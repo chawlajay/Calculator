@@ -1,28 +1,28 @@
-const clear=document.querySelector(".clear");
+const clear=document.querySelector(".clear");    // element that clears the todos from the local storage on click
 
-const dateElement=document.getElementById("date");
+const dateElement=document.getElementById("date");  // element which shows today's date
 let today = new Date();
 let options = { weekday: 'long', month:'short', day:'numeric'};
 dateElement.innerHTML = today.toLocaleDateString("en-US",options);
 
-const list=document.getElementById("list");
+const list=document.getElementById("list");	    // unordered list having list of todos
 
-const input=document.getElementById("input_item");
+const input=document.getElementById("input_item");    // input textbox element where we enter our todo
 
 // classes required when event occurs (check,uncheck,delete)
-const CHECK="fa-check-circle";
-const UNCHECK="fa-circle";
-const LINE_THROUGH="lineThrough";
+const CHECK="fa-check-circle";					// display check circle icon when a todo is done
+const UNCHECK="fa-circle";						// display uncheck circle icon when todo is not done 
+const LINE_THROUGH="lineThrough";				// strike the todo text with line when done 
 
-let LIST,index;
+let LIST,index;		// LIST stores all the todos which are entered by the user currently
 
-let data = localStorage.getItem("TODO");
+let data = localStorage.getItem("TODO");		// data variable stores the todos which are stored in the local storage
 	if(data)
 	{
-		LIST=JSON.parse(data);
-		loadToDo(LIST);
+		LIST=JSON.parse(data);		// stores todos from local storage to LIST if any
+		loadToDo(LIST);				// to show the todos on the screen from LIST
 		index=LIST.length;
-		console.log(LIST);
+		// console.log(LIST);     // for debugging purpose
 	}
 	else
 	{
@@ -40,17 +40,20 @@ function completeToDo(element){
 	LIST[element.id].done = LIST[element.id].done ? false : true;
 }
 
+// here element is the trash icon
 function removeToDo(element){
-	element.parentNode.parentNode.removeChild(element.parentNode);
+	element.parentNode.parentNode.removeChild(element.parentNode);			// removes the li element - deletes it from the list
 	LIST[element.id].trash=true;
 }
 
+// loads the todos from array in the ul element to show it on screen
 function loadToDo(array){
 	array.forEach(function(item){
-		addToDo(item.name,item.id,item.done,item.trash);
+		addToDo(item.name,item.id,item.done,item.trash);     // adds a item to the unordered list
 	});
 }
 
+// adds an item with proper icons and classes to the html and this is printed on screen
 function addToDo(toDo_item,id,done,trash){
 
 if(trash){
@@ -61,15 +64,16 @@ const DONE = done ? CHECK : UNCHECK;   // to determine which circle icon to choo
 const LINE = done ? LINE_THROUGH : "";  // when done strike through the text
 
 const text= `<li class="item"><i class="far ${DONE}" job="complete" id="${id}"> </i> <p class="text ${LINE}"> ${toDo_item} </p> <i class="far fa-trash-alt" job="delete" id="${id}"> </i> </li>`; 
-const position = "beforeend";
+const position = "beforeend";   // position where to add a new text when user click enter in the input box after typing a todo item
 
+// adds a li element inside a ul element
 list.insertAdjacentHTML(position,text);
 }
 
 
 document.addEventListener("keyup",function(event){
 
-if(event.keyCode == 13)    // keycode of enter key is 13
+if(event.code == 13)    // keycode of enter key is 13
 {
 	const toDo = input.value;
 	
@@ -116,3 +120,5 @@ clear.addEventListener("click",()=>{
 localStorage.clear();
 location.reload();      // reload the page
 });
+
+
