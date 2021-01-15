@@ -73,7 +73,7 @@ list.insertAdjacentHTML(position,text);
 
 document.addEventListener("keyup",function(event){
 
-if(event.keyCode == 13)    // keycode of enter key is 13
+if(event.code == 13)    // keycode of enter key is 13
 {
 	const toDo = input.value;
 	
@@ -120,3 +120,5 @@ clear.addEventListener("click",()=>{
 localStorage.clear();
 location.reload();      // reload the page
 });
+
+

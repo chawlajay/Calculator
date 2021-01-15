@@ -119,18 +119,19 @@ cursor: pointer;
 }
 
 .add-item .fa-plus-circle{
-	position: absolute;
+    position: absolute;
+    right:10px;
     font-size: 40px;
     color: #4162f6;
 }
 
 .add-item input{
 	position: absolute;
-    left: 50px;
+    left: 10px;
     height: 35px;
     width: 330px;
     background-color: transparent;
     border: none;
     font-size: 20px;
-    padding-left:10px;
+    /* padding-left:10px; */
 }
