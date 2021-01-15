@@ -9,6 +9,7 @@ const list=document.getElementById("list");	    // unordered list having list of
 
 const input=document.getElementById("input_item");    // input textbox element where we enter our todo
 
+const add_todo_icon = document.querySelector(".fa-plus-circle");
 // classes required when event occurs (check,uncheck,delete)
 const CHECK="fa-check-circle";					// display check circle icon when a todo is done
 const UNCHECK="fa-circle";						// display uncheck circle icon when todo is not done 
@@ -71,30 +72,29 @@ list.insertAdjacentHTML(position,text);
 }
 
 
-document.addEventListener("keyup",function(event){
+input.addEventListener("keyup",(event) => {
 
-if(event.code == 13)    // keycode of enter key is 13
-{
-	const toDo = input.value;
-	
-	if(toDo)
+	if(event.keyCode == 13 || event.code == 13)    // keycode of enter key is 13
 	{
-		addToDo(toDo,index,false,false);
-		LIST.push(
-			{
-				name: toDo,
-				id: index,
-				done: false,
-				trash:false
-			}
-		);
-		localStorage.setItem("TODO",JSON.stringify(LIST));
+	const toDo = input.value;
+	console.log("Entered");
+		if(toDo)
+		{
+			addToDo(toDo,index,false,false);
+			LIST.push(
+				{
+					name: toDo,
+					id: index,
+					done: false,
+					trash:false
+				}
+			);
+			localStorage.setItem("TODO",JSON.stringify(LIST));
+		}
+		input.value="";
+		index++;
+	//console.log(LIST);
 	}
-	input.value="";
-	index++;
-	console.log(LIST);
-}
-
 });
 
 // to remove or to complete a todo event on click is added
@@ -117,8 +117,12 @@ localStorage.setItem("TODO",JSON.stringify(LIST));
 
 // to clear the toDos on local storage when clear button is clicked
 clear.addEventListener("click",()=>{
-localStorage.clear();
-location.reload();      // reload the page
+	var ask_once = confirm("Are you sure you want to delete all the todos you entered ?");
+	if(ask_once==true)
+	{
+	localStorage.clear();
+	location.reload();      // reload the page
+	}
 });
 
 
