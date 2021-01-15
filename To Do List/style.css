@@ -28,7 +28,25 @@ body{
 	position: absolute;
 	top: 10px;
 	left: 10px;
-	font-size: 25px;
+	font-size: 30px;
+}
+
+.tooltip_clear .tooltip_text_clear{
+visibility: hidden;
+background-color:black;
+color: white;
+position:absolute;
+left: 200%;
+border-radius: 5px;
+width:fit-content;
+padding: 2px;
+opacity: 0;
+transition: opacity 1s;
+}
+
+.tooltip_clear:hover .tooltip_text_clear{
+    visibility: visible;
+    opacity: 1;
 }
 
 .clear{
@@ -96,6 +114,25 @@ body{
     color : #ccc;
 }
 
+.item{
+    position:relative;
+}
+
+.tooltip_delete .tooltip_text_delete{
+    visibility: hidden;
+    background-color:black;
+    color: white;
+    position:absolute;
+    left: 75%;
+    bottom: 0%;
+    z-index: 5;
+    border-radius: 5px;
+    width:max-content;
+    padding: 2px;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
 .item .fa-trash-alt{
     font-size: 25px;
 }
@@ -103,6 +140,13 @@ body{
 .item .fa-trash-alt:hover{
 color:#af0000;
 cursor: pointer;
+transform: scale(1.2);
+}
+
+.tooltip_delete:hover .tooltip_text_delete{
+    visibility: visible;
+    z-index: 5;
+    opacity: 0.7;
 }
 
 /*Add an item*/
@@ -118,11 +162,35 @@ cursor: pointer;
     border-top: 1px solid rgba(0,0,0,0.1);
 }
 
+.tooltip_add .tooltip_text_add{
+    visibility: hidden;
+    background-color:black;
+    color: white;
+    position:absolute;
+    left: 103%;
+    top:30%;
+    border-radius: 5px;
+    width:fit-content;
+    padding: 2px;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
 .add-item .fa-plus-circle{
     position: absolute;
     right:10px;
-    font-size: 40px;
+    top: 15px;
+    font-size: 30px;
     color: #4162f6;
+}
+
+.add-item .fa-plus-circle:hover{
+    transform: scale(1.2);
+}
+
+.tooltip_add:hover .tooltip_text_add{
+    visibility: visible;
+    opacity: 1;
 }
 
 .add-item input{
