@@ -121,7 +121,7 @@ transition: opacity 1s;
 .item .fa-trash-alt:hover{
 color:#af0000;
 cursor: pointer;
-transform: scale(1.5);
+transform: scale(1.2);
 }
 
 /*Add an item*/
@@ -137,16 +137,35 @@ transform: scale(1.5);
     border-top: 1px solid rgba(0,0,0,0.1);
 }
 
+.tooltip_add .tooltip_text_add{
+    visibility: hidden;
+    background-color:black;
+    color: white;
+    position:absolute;
+    left: 103%;
+    top:30%;
+    border-radius: 5px;
+    width:fit-content;
+    padding: 2px;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
 .add-item .fa-plus-circle{
     position: absolute;
     right:10px;
-    top: 20px;
+    top: 15px;
     font-size: 30px;
     color: #4162f6;
 }
 
 .add-item .fa-plus-circle:hover{
-    transform: scale(1.4);
+    transform: scale(1.2);
+}
+
+.tooltip_add:hover .tooltip_text_add{
+    visibility: visible;
+    opacity: 1;
 }
 
 .add-item input{

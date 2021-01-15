@@ -9,7 +9,6 @@ const list=document.getElementById("list");	    // unordered list having list of
 
 const input=document.getElementById("input_item");    // input textbox element where we enter our todo
 
-const add_todo_icon = document.querySelector(".fa-plus-circle");
 // classes required when event occurs (check,uncheck,delete)
 const CHECK="fa-check-circle";					// display check circle icon when a todo is done
 const UNCHECK="fa-circle";						// display uncheck circle icon when todo is not done 
@@ -102,14 +101,14 @@ list.addEventListener("click",(event) => {
 let element = event.target;  // when delete button is clicked, element value is <i class="far fa-trash-alt" job="delete" id="${id}"> </i>
 const elementJob = element.attributes.job.value;   // returns delete or complete
 
-if(elementJob == "complete")
-{
-completeToDo(element);
-}
-else if(elementJob == "delete")
-{
-removeToDo(element);
-}
+	if(elementJob == "complete")
+	{
+	completeToDo(element);
+	}
+	else if(elementJob == "delete")
+	{
+	removeToDo(element);
+	}
 
 // store and update local storage
 localStorage.setItem("TODO",JSON.stringify(LIST));
@@ -124,5 +123,4 @@ clear.addEventListener("click",()=>{
 	location.reload();      // reload the page
 	}
 });
-
 
