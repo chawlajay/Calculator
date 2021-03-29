@@ -7,9 +7,13 @@
     <title>Snake Game</title>
     <style>
         body{
+            margin: 0;
+        }
+        .snake_game{
             min-height:100vh;
             width: 100vw; 
             display: flex;
+            
             justify-content: center;
             align-items: center;
             margin: 0;
@@ -36,12 +40,39 @@
             background-color: hsl(50,100%,50%);
             border: 0.25vmin solid black;
         }
+
+        .arrow_up{
+            position: absolute;
+            right: 20%;
+            top: 20%;
+        }
+        .arrow_down{
+            position: absolute;
+            right: 20%;
+            top: 30%;
+        }
+        .arrow_left{
+            position: absolute;
+            right: 20%;
+            top: 40%;
+        }
+        .arrow_right{
+            position: absolute;
+            right: 20%;
+            top: 50%;
+        }
     </style>
-    <script src="script.js" defer type="module"></script>  /* type module due to import and export use in file */
+     <script src="script.js" defer type="module"></script>   <!-- type module due to import and export use in file -->
 </head>
 <body>
-    <div id="game-board">
-
+    <div class="arrow_up"><img src="up.svg"></div>
+    <div class="arrow_down"><img src="down.svg"></div>
+    <div class="arrow_left"><img src="left.svg"></div>
+    <div class="arrow_right"><img src="right.svg"></div>
+    <div class="snake_game">   
+        <div id="game-board">
+            
+        </div>
     </div>
 </body>
 </html>
