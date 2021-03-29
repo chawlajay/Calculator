@@ -51,7 +51,8 @@ function checkDeath(){
     gameOver = outsideGrid(getSnakeHead()) || snakeIntersection();
 }
 
-document.getElementById('play_pause').addEventListener('click', ()=> {
+document.getElementById('play_pause').addEventListener('click', ()=>
+{
     if(playPause==true)
     window.cancelAnimationFrame(requestId),playPause = false;
     else
