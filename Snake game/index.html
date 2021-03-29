@@ -13,7 +13,6 @@
             min-height:100vh;
             width: 100vw; 
             display: flex;
-            
             justify-content: center;
             align-items: center;
             margin: 0;
@@ -107,11 +106,21 @@
         #score{
             transition:ease-in-out;
         }
+
+        #play_pause{
+            position: absolute;
+            color: wheat;
+            left: 15%;
+            top: 10%;
+            font-size: larger;
+            color: black;
+        }
     </style>
      <script src="script.js" defer type="module"></script>   <!-- type module due to import and export use in file -->
 </head>
 <body>
     <h1>Score: <span id="score">0</span></h1>
+    <button id="play_pause">Play/Pause</button>
     <div class="arrow_up"><img src="up.svg"></div>
     <div class="arrow_down"><img src="down.svg"></div>
     <div class="arrow_left"><img src="left.svg"></div>

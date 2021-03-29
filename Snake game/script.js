@@ -6,9 +6,12 @@ import { outsideGrid } from './grid.js';
 
 var lastRenderTime=0;
 let gameOver = false;
+export let playPause = false;
+
+let requestId=0;
 const gameBoard = document.querySelector('#game-board'); 
 function main(currentTime){
-
+    playPause = true;
     if(gameOver){
         if(confirm('You Lost. Press OK to restart.')){
             window.location='/';  // refresh page
@@ -16,7 +19,8 @@ function main(currentTime){
         return;
     }
 
-    window.requestAnimationFrame(main);
+    requestId=window.requestAnimationFrame(main);
+    console.log(requestId);
     const secondsSinceLastRender = (currentTime - lastRenderTime)/1000;  // into seconds
     
     if(secondsSinceLastRender < 1/SNAKE_SPEED)
@@ -30,8 +34,6 @@ function main(currentTime){
     update();
     draw();
 }
-
-window.requestAnimationFrame(main);
 
 function update(){
 updateSnake();
@@ -48,3 +50,10 @@ drawFood(gameBoard);
 function checkDeath(){
     gameOver = outsideGrid(getSnakeHead()) || snakeIntersection();
 }
+
+document.getElementById('play_pause').addEventListener('click', ()=> {
+    if(playPause==true)
+    window.cancelAnimationFrame(requestId),playPause = false;
+    else
+    requestId = window.requestAnimationFrame(main),playPause = true;
+});
