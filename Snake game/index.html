@@ -97,10 +97,21 @@
             transform: scale(0.9);
             opacity: 1;
         }
+
+        h1{
+            position: absolute;
+            color: wheat;
+            left: 15%;
+        }
+
+        #score{
+            transition:ease-in-out;
+        }
     </style>
      <script src="script.js" defer type="module"></script>   <!-- type module due to import and export use in file -->
 </head>
 <body>
+    <h1>Score: <span id="score">0</span></h1>
     <div class="arrow_up"><img src="up.svg"></div>
     <div class="arrow_down"><img src="down.svg"></div>
     <div class="arrow_left"><img src="left.svg"></div>

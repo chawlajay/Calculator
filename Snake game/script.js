@@ -6,7 +6,6 @@ import { outsideGrid } from './grid.js';
 
 var lastRenderTime=0;
 let gameOver = false;
-
 const gameBoard = document.querySelector('#game-board'); 
 function main(currentTime){
 
@@ -14,7 +13,7 @@ function main(currentTime){
         if(confirm('You Lost. Press OK to restart.')){
             window.location='/';  // refresh page
         }
-        return
+        return;
     }
 
     window.requestAnimationFrame(main);
