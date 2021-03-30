@@ -26,5 +26,13 @@ function start(){
 
 start();
 
+function createSnake(){
+    var snakeSize=5;
+    mySnakeArray=[];
+    for(let i=0;i<snakeSize;i++)
+    {
+        mySnakeArray.push({ x:0, y:20 });
+    }
+}
 
 })
