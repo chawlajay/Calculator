@@ -35,4 +35,11 @@ function createSnake(){
     }
 }
 
+function createFood(){
+    snake_food = {
+        x: Math.round(Math.random()*(width - cell_width)/cell_width),
+        y: Math.round(Math.random()*(height - cell_width)/cell_width)
+    }
+}
+
 })
