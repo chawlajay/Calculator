@@ -79,11 +79,19 @@ function paintSnake(){
     for(let i=0;i<mySnakeArray.length;i++)
     {
         let k=mySnakeArray[i];
-        paintSnake(k.x,k.y);
+        paintCell(k.x,k.y);
     }
 
-    paintSnake(snake_food.x,snake_food.y);
+    paintCell(snake_food.x,snake_food.y);
     var score_text = "Score: "+userscore;
     context.fillText(score_text,width-50,50);
+}
+
+function paintCell(x,y)
+{
+    context.fillStyle="orange";
+    context.fillRect(x*cell_width,y*cell_width,cell_width,cell_width);
+    context.strokeStyle = "red";
+    context.strokeRect(x*cell_width,y*cell_width,cell_width,cell_width);
 }
 })
