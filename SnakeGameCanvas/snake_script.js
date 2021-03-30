@@ -103,4 +103,13 @@ function checkCollision(x,y,array){
     });
     return false;
 }
+
+$(document).keydown(function(e){
+var keyInput = e.which;
+if(keyInput == "40" && defaultRun!="up") defaultRun="down";
+else if(keyInput == "39" && defaultRun!="left") defaultRun="right";
+else if(keyInput == "38" && defaultRun!="down") defaultRun="up";
+else if(keyInput == "37" && defaultRun!="right") defaultRun="left";
+});
+
 })
