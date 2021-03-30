@@ -48,5 +48,42 @@ function paintSnake(){
     context.strokeStyle = "0000ff";
     context.strokeRect(0,0,width,height);
 
+    var pop_x = mySnakeArray[0].x;
+    var pop_y = mySnakeArray[0].y;
+
+    if(defaultRun == "right") pop_x++;
+    else if(defaultRun == "left") pop_x--;
+    else if(defaultRun == "down") pop_y++;
+    else if(defaultRun == "up") pop_y--;
+
+    if(pop_x == -1 || pop_y == -1 || pop_x == width/cell_width || pop_y == height/cell_width || checkCollision(pop_x,pop_y,mySnakeArray))
+    {
+        start();
+        return;
+    }
+
+    if(pop_x == snake_food.x && pop_y == snake_food.y)
+    {
+        var snake_tail = { x:pop_x, y:pop_y };
+        userscore++;
+        createFood();
+    }
+    else 
+    {
+        var snake_tail = mySnakeArray.pop();
+        snake_tail.x = pop_x; snake_tail.y = pop_y;
+    }
+
+    mySnakeArray.unshift(snake_tail);
+
+    for(let i=0;i<mySnakeArray.length;i++)
+    {
+        let k=mySnakeArray[i];
+        paintSnake(k.x,k.y);
+    }
+
+    paintSnake(snake_food.x,snake_food.y);
+    var score_text = "Score: "+userscore;
+    context.fillText(score_text,width-50,50);
 }
 })
