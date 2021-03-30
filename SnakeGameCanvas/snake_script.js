@@ -83,8 +83,7 @@ function paintSnake(){
     }
 
     paintCell(snake_food.x,snake_food.y);
-    var score_text = "Score: "+userscore;
-    context.fillText(score_text,width-50,50);
+    document.querySelector("#score span").innerHTML=userscore;
 }
 
 function paintCell(x,y)
@@ -96,12 +95,13 @@ function paintCell(x,y)
 }
 
 function checkCollision(x,y,array){
-    array.some(value =>{
-        if(value.x == x && value.y == y){
+    return array.some((currentValue)=>{
+        if(currentValue.x == x && currentValue.y == y){
             return true;
         }
+        else
+        return false;
     });
-    return false;
 }
 
 $(document).keydown(function(e){
