@@ -94,4 +94,13 @@ function paintCell(x,y)
     context.strokeStyle = "red";
     context.strokeRect(x*cell_width,y*cell_width,cell_width,cell_width);
 }
+
+function checkCollision(x,y,array){
+    array.some(value =>{
+        if(value.x == x && value.y == y){
+            return true;
+        }
+    });
+    return false;
+}
 })
