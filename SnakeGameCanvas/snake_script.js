@@ -42,4 +42,11 @@ function createFood(){
     }
 }
 
+function paintSnake(){
+    context.fillStyle = "#c0f0aa";
+    context.fillRect(0,0,width,height);
+    context.strokeStyle = "0000ff";
+    context.strokeRect(0,0,width,height);
+
+}
 })
