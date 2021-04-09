@@ -21,3 +21,14 @@ const quotes = [
     name: "John Lennon"}
 ];
 
+const quoteBtn = document.getElementById("quoteBtn");
+const quoteAuthor = document.getElementById("quoteAuthor");
+const quote = document.getElementById("quote");
+
+quoteBtn.addEventListener('click',displayQuote);
+
+function displayQuote(){
+    let number = Math.floor(Math.random()*quotes.length);
+    quoteAuthor.innerHTML = quotes[number].name;
+    quote.innerHTML = quotes[number].quote;
+}
