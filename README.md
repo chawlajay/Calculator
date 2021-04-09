@@ -1,3 +1,5 @@
+## Snake Game
+Two different snake games. One with pure JS and other with JS + jQuery
 ## Calculator
 Made a Standard Calculator using Javascript.
 Will add a Scientific calculator also.
