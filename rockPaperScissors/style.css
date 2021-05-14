@@ -101,7 +101,7 @@ right: -30px;
 
 @keyframes draw_game {
     0%{
-        border-color: yellow;
+        border-color: black;
     }
     100%{
         border-color: white;
