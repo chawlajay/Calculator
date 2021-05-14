@@ -1,6 +1,6 @@
 let rock_icon=document.getElementById("r");
 let paper_icon=document.getElementById("p");
-let scissors_icon=document.getElementById("s");
+let scissor_icon=document.getElementById("s");
 
 let user_score = document.getElementById("user_score");
 let computer_score = document.getElementById("computer_score");
@@ -93,5 +93,49 @@ paper_icon.addEventListener('mouseup',()=>{
     setTimeout(function(){
         paper_icon.style.animationName="";
         paper_icon.style.animationDuration="";
+    },500);
+});
+
+scissor_icon.addEventListener('mousedown',()=>{
+    user_choice=2;
+    scissor_icon.style.transform ="scale(0.8)";
+
+    computer_choice=Math.floor(Math.random()*3);
+    console.log(computer_choice);
+    if(computer_choice==0)        // scissor - user & rock - comp
+    {  
+        // computer won, user lost
+        scissor_icon.style.animationName="lost_game";
+        scissor_icon.style.animationDuration="5s";
+
+        computer_score.innerHTML = parseInt(computer_score.innerHTML) + 1;
+        result.innerHTML = choices[computer_choice] + "(comp) destroys " + choices[user_choice] + "(user). You Lost.";
+    }
+    else if(computer_choice==1)   // scissor - user & paper - comp
+    {
+        // computer lost, user won
+        scissor_icon.style.animationName="won_game";
+        scissor_icon.style.animationDuration="5s";
+
+        user_score.innerHTML = parseInt(user_score.innerHTML) + 1;
+        result.innerHTML = choices[user_choice] + "(user) cuts the " + choices[computer_choice] + "(comp). You Win.";
+        
+    }
+    else   // scissor - user & scissor - comp
+    {
+        // game draw
+        scissor_icon.style.animationName="draw_game";
+        scissor_icon.style.animationDuration="5s";
+
+        result.innerHTML = choices[user_choice] + "(user) is equal to " + choices[computer_choice] + "(comp). Game Draw!";
+    }
+});
+
+scissor_icon.addEventListener('mouseup',()=>{
+    scissor_icon.style.transform ="scale(1)";
+
+    setTimeout(function(){
+        scissor_icon.style.animationName="";
+        scissor_icon.style.animationDuration="";
     },500);
 });
