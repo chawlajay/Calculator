@@ -29,7 +29,11 @@ rock_icon.addEventListener('mousedown',()=>{
     }
     else
     {
+        // user won, computer lost
+        rock_icon.style.animationName="won_game";
+        rock_icon.style.animationDuration="5s";
 
+        user_score.innerHTML = parseInt(user_score.innerHTML) + 1;
     }
 });
 
