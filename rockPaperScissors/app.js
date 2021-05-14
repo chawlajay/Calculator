@@ -11,7 +11,6 @@ let result = document.querySelector(".result p");
 
 rock_icon.addEventListener('mousedown',()=>{
     user_choice=0;
-    console.log('rock mousedown clicked');
     rock_icon.style.transform ="scale(0.8)";
 
     computer_choice=Math.floor(Math.random()*3);
@@ -45,11 +44,54 @@ rock_icon.addEventListener('mousedown',()=>{
 });
 
 rock_icon.addEventListener('mouseup',()=>{
-    console.log('rock mouseup clicked');
     rock_icon.style.transform ="scale(1)";
 
     setTimeout(function(){
         rock_icon.style.animationName="";
         rock_icon.style.animationDuration="";
-    },100);
+    },500);
+});
+
+paper_icon.addEventListener('mousedown',()=>{
+    user_choice=1;
+    paper_icon.style.transform ="scale(0.8)";
+
+    computer_choice=Math.floor(Math.random()*3);
+    console.log(computer_choice);
+    if(computer_choice==0)        // paper - user & rock - comp
+    {  
+        // user won, computer lost
+        paper_icon.style.animationName="won_game";
+        paper_icon.style.animationDuration="5s";
+
+        user_score.innerHTML = parseInt(user_score.innerHTML) + 1;
+        result.innerHTML = choices[user_choice] + "(user) covers " + choices[computer_choice] + "(comp). You Win.";
+    }
+    else if(computer_choice==1)   // paper - user & paper - comp
+    {
+        // game draw
+        paper_icon.style.animationName="draw_game";
+        paper_icon.style.animationDuration="5s";
+
+        result.innerHTML = choices[user_choice] + "(user) is equal to " + choices[computer_choice] + "(comp). Game Draw!";
+        
+    }
+    else   // paper - user & scissor - comp
+    {
+        // computer won, user lost
+        paper_icon.style.animationName="lost_game";
+        paper_icon.style.animationDuration="5s";
+
+        computer_score.innerHTML = parseInt(computer_score.innerHTML) + 1;
+        result.innerHTML = choices[computer_choice] + "(comp) cuts the " + choices[user_choice] + "(user). You Lost.";
+    }
+});
+
+paper_icon.addEventListener('mouseup',()=>{
+    paper_icon.style.transform ="scale(1)";
+
+    setTimeout(function(){
+        paper_icon.style.animationName="";
+        paper_icon.style.animationDuration="";
+    },500);
 });
