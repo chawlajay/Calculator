@@ -13,14 +13,19 @@ rock_icon.addEventListener('mousedown',()=>{
 
     computer_choice=Math.floor(Math.random()*3);
     console.log(computer_choice);
-    if(computer_choice==0)
+    if(computer_choice==0)        // rock - user & rock - comp
     {
+        // game draw
         rock_icon.style.animationName="draw_game";
         rock_icon.style.animationDuration="5s";
     }
-    else if(computer_choice==1)
+    else if(computer_choice==1)   // rock - user & paper - comp
     {
+        // computer won, user lost
+        rock_icon.style.animationName="lost_game";
+        rock_icon.style.animationDuration="5s";
 
+        computer_score.innerHTML = parseInt(computer_score.innerHTML) + 1;
     }
     else
     {
@@ -32,19 +37,8 @@ rock_icon.addEventListener('mouseup',()=>{
     console.log('rock mouseup clicked');
     rock_icon.style.transform ="scale(1)";
 
-    if(computer_choice==0)
-    {
-        setTimeout(function(){
-            rock_icon.style.animationName="";
-            rock_icon.style.animationDuration="";
-        },100);
-    }
-    else if(computer_choice==1)
-    {
-
-    }
-    else
-    {
-
-    }
+    setTimeout(function(){
+        rock_icon.style.animationName="";
+        rock_icon.style.animationDuration="";
+    },100);
 });

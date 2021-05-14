@@ -107,3 +107,21 @@ right: -30px;
         border-color: white;
     }
 }
+
+@keyframes won_game {
+    0%{
+        border-color: green;
+    }
+    100%{
+        border-color: white;
+    }
+}
+
+@keyframes lost_game {
+    0%{
+        border-color: red;
+    }
+    100%{
+        border-color: white;
+    }
+}
