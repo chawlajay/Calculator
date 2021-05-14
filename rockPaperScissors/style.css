@@ -98,3 +98,12 @@ right: -30px;
     font-weight: bold;
     font-size: 20px;
 }
+
+@keyframes draw_game {
+    0%{
+        border-color: yellow;
+    }
+    100%{
+        border-color: white;
+    }
+}
