@@ -39,6 +39,7 @@ document.querySelectorAll(".drum")[i].addEventListener('click',function (){
 
     var buttonInnerHTML = this.innerHTML;
     make_sound(buttonInnerHTML);
+    buttonAnimation(buttonInnerHTML);
 });
 }
 
@@ -46,4 +47,15 @@ document.querySelectorAll(".drum")[i].addEventListener('click',function (){
 document.addEventListener("keypress", function(){
 var value_of_key_pressed = event.key;
 make_sound(value_of_key_pressed);
+buttonAnimation(value_of_key_pressed);
 });
+
+function buttonAnimation(currentKey){
+
+var activeButton = document.querySelector("."+currentKey);
+activeButton.classList.add("pressed");
+setTimeout(function(){
+    activeButton.classList.remove("pressed");
+},100);
+
+}
