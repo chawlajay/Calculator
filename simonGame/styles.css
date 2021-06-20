@@ -5,8 +5,14 @@ body {
 
 #level-title {
   font-family: 'Press Start 2P', cursive;
-  font-size: 3rem;
+  font-size: 2.5rem;
   color: #FEF2BF;
+}
+
+h3{
+  margin: 0;
+  padding: 0;
+  color:aliceblue;
 }
 
 .container {
