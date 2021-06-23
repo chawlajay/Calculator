@@ -6,9 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>3D rotating cube</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js"></script>
 </head>
 <body>
     
 </body>
+<script>
+    const COLOR_BG = "black";
+const COLOR_CUBE = "yellow";
+const SPEED_X = "0.05";
+const SPEED_Y = "0.15";
+const SPEED_Z = "0.10";
+const POINT3D = function (x,y,z){
+this.x = x;
+this.y = y;
+this.z = z;
+}
+
+// set up canvas & context 
+var canvas = document.createElement("canvas");
+document.body.appendChild(canvas);
+var ctx = canvas.getContext("2d");
+
+//dimensions
+var h = document.documentElement.clientHeight;
+var w = document.documentElement.clientWidth;
+
+canvas.height = h;
+canvas.width = w;
+</script>
 </html>
