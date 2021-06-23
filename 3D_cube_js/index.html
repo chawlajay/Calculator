@@ -33,5 +33,22 @@ var w = document.documentElement.clientWidth;
 
 canvas.height = h;
 canvas.width = w;
+
+ctx.fillStyle = COLOR_BG;
+ctx.strokeStyle = COLOR_CUBE;
+
+ctx.lineWidth = w/100;
+ctx.lineCap = "round";
+
+var timeDelta, timeLast = 0;
+requestAnimationFrame(loop);
+
+function loop(timeNow){
+    timeDelta = timeNow - timeLast;
+    timeLast = timeNow;
+
+    ctx.fillRect(0,0,w,h);
+    requestAnimationFrame(loop);
+}
 </script>
 </html>
