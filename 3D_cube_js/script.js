@@ -8,3 +8,15 @@ this.x = x;
 this.y = y;
 this.z = z;
 }
+
+// set up canvas & context 
+var canvas = document.createElement("canvas");
+document.body.appendChild(canvas);
+var ctx = canvas.getContext("2d");
+
+//dimensions
+var h = document.documentElement.clientHeight;
+var w = document.documentElement.clientWidth;
+
+canvas.height = h;
+canvas.width = w;
