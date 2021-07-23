@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <div class="dashboard">
+        <div class="heading">
+            <h2>Let's play Kaun Banega Crorepati</h2>
+            <button type="button" id="demo">Loading.....</button>
+        </div>
+        <div class="quiz-box">
+            <div class="quiz-header">
+                <div class="correct-incorrect-answers">
+                    <span id="correct-answers">0 correct</span>
+                    <span> - </span>
+                    <span id="incorrect-answers">0 wrong</span>
+                </div>
+                <div class="timer">
+                    <span id="minutes">00</span>
+                    <span>:</span>
+                    <span id="seconds">00</span>
+                </div>
+            </div>
+            <div class="quiz-details">
+                <div class="quiz-container">
+                    <div class="question-name">
+                        <p id="question_number"></p>
+                        <p id="question"></p>
+                    </div>
+                    <div class="options">
+                        <ul class="options-list">
+                            <li id="option1">D</li>
+                            <li id="option2">C</li>
+                            <li id="option3">B</li>
+                            <li id="option4">A</li>
+                        </ul>
+                    </div>
+                    <div class="button-box">
+                        <button type="button" id="next">Submit Answer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
