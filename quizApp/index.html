@@ -7,7 +7,8 @@
     <title>Quiz</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
-    <script src="app.js" defer></script>
+    <script src="font_awesome_all.js" defer></script>
+    <script src="script.js" defer></script>
 </head>
 <body>
     <div class="dashboard">
@@ -17,12 +18,16 @@
         </div>
         <div class="quiz-box">
             <div class="quiz-header">
-                <div class="correct-incorrect-answers">
+                <div class="">
+                    <i class="fas fa-check icon"></i>
                     <span id="correct-answers">0 correct</span>
-                    <span> - </span>
+                </div>
+                <div class="">
+                    <i class="fas fa-times icon"></i>
                     <span id="incorrect-answers">0 wrong</span>
                 </div>
                 <div class="timer">
+                    <i class="fas fa-hourglass-half"></i>
                     <span id="minutes">00</span>
                     <span>:</span>
                     <span id="seconds">00</span>
@@ -36,10 +41,10 @@
                     </div>
                     <div class="options">
                         <ul class="options-list">
-                            <li id="option1">D</li>
-                            <li id="option2">C</li>
-                            <li id="option3">B</li>
-                            <li id="option4">A</li>
+                            <li id="option1"></li>
+                            <li id="option2"></li>
+                            <li id="option3"></li>
+                            <li id="option4"></li>
                         </ul>
                     </div>
                     <div class="button-box">
