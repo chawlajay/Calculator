@@ -23,7 +23,7 @@ img{
 .mobile-container{
     margin: 1%;
     background-color: white;
-    width: 300px;
+    width: 400px;
     box-shadow: 0 0 10px 2px #3A333333;
     border-radius: 3px;
     overflow: hidden;
@@ -52,8 +52,8 @@ header button{
 }
 
 .fav-container{
-background-color: rgba(98, 71, 255, 0.582);
-padding: 0.5rem;
+background-color: rgba(136, 115, 255, 0.52);
+padding: 0.5rem 1rem 0rem;
 text-align: center;
 }
 
@@ -65,15 +65,33 @@ text-align: center;
     list-style-type:none;
     display: flex;
     padding: 0%;
+    /* flex-wrap: wrap; */
+    overflow-x: auto;
+    white-space:pre;
+    margin-bottom: 1%;
 }
 
 .fav-meals li{
+/* background-color: whitesmoke; */
+display: inline-block;
+width: 90px;
+}
 
+::-webkit-scrollbar {
+    /* width: 0;  Remove scrollbar space */
+    display: none;
+    /* background: transparent;  Optional: just make scrollbar invisible */
 }
 
 .fav-meals li img{
+    border: 2px solid #ffffff;
     border-radius: 50%;
+    box-shadow: 0 0 10px 2px #3A333333;
     width: 75px;
     height: 75px;
     object-fit: cover;
+}
+
+.fav-meals li span{
+    font-size: 0.65rem;
 }
