@@ -73,6 +73,7 @@ text-align: center;
 
 .fav-meals li{
 /* background-color: whitesmoke; */
+position: relative;
 display: inline-block;
 width: 80px;
 text-align: center;
@@ -92,6 +93,21 @@ margin: 0px 5px;
     font-size: 0.65rem;
     /* word-break: break-all; */
     /* width: 30px; */
+}
+
+.fav-meals li .clear{
+    background: transparent;
+    border: none;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    padding: 0px;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.fav-meals li:hover .clear{
+    opacity: 1;
 }
 
 .meal{
