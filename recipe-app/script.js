@@ -12,7 +12,8 @@ async function getRandomMeal(){
     const resp = await fetch(url);
     const respData = await resp.json();
     const randomMeal = respData.meals[0];
-    addMeal(randomMeal, true);    
+    addMeal(randomMeal, true);   
+    console.log(randomMeal); 
 }
 
 async function getMealById(id){
