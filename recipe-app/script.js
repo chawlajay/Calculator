@@ -4,6 +4,10 @@ const favouriteContainer = document.getElementById('fav-meals');
 const searchTerm = document.getElementById("search-term");
 const searchBtn = document.getElementById("search");
 
+const mealPopup = document.getElementById("meal-popup");
+const mealInfoEl = document.getElementById("meal-info");
+const popupCloseBtn = document.getElementById("close-popup");
+
 getRandomMeal();
 fetchFavMeals();
 
@@ -71,6 +75,10 @@ function addMeal(mealData, random = false){
         fetchFavMeals();
         // console.log("click");
     });
+
+    meal.addEventListener('click', ()=>{
+        showMealInfo(mealData);
+    })
     mealsElement.appendChild(meal);
 }
 
@@ -112,7 +120,36 @@ function addMealFav(mealData){
         removeMealLS(mealData.idMeal);
         fetchFavMeals();
     });
+    favMeal.addEventListener('click',(e)=>{
+        showMealInfo(mealData);
+    });
     favouriteContainer.appendChild(favMeal);
+}
+
+function showMealInfo(mealData){
+    console.log(mealData);
+    const mealEl = document.createElement('div');
+    mealInfoEl.innerHTML ="";
+    mealEl.innerHTML = `<h1>${mealData.strMeal}</h1>
+    <img src="${mealData.strMealThumb}" alt="${mealData.strMeal}">
+    <h3>Ingredients:</h3>
+    <ul></ul>
+    <h3>Instuctions:</h3>
+    <p>${mealData.strInstructions}</p>
+    `;
+    for(let i=1;i<=20;i++){
+        let ingre = "strIngredient"+i;
+        let ingreMeasure = "strMeasure"+i;
+        let liEle = document.createElement("li");
+        if(mealData[ingre])
+        {
+            liEle.innerHTML = mealData[ingre] + " - " + mealData[ingreMeasure]; 
+            mealEl.querySelector("ul").appendChild(liEle);  
+        }
+    }
+
+    mealInfoEl.appendChild(mealEl);
+    mealPopup.classList.remove("hidden");
 }
 
 searchBtn.addEventListener('click',async () => {
@@ -130,4 +167,8 @@ searchBtn.addEventListener('click',async () => {
 
     // if(meals.innerHTML="")
     // getRandomMeal();
-})
+});
+
+popupCloseBtn.addEventListener('click',()=>{
+mealPopup.classList.add("hidden");
+});
