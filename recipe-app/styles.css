@@ -50,6 +50,7 @@ header button{
     border: none;
     font-size: 1.5rem;
     margin-left: 10px;
+    cursor: pointer;
 }
 
 .fav-container{
@@ -91,8 +92,11 @@ margin: 0px 5px;
 
 .fav-meals li span{
     font-size: 0.65rem;
-    /* word-break: break-all; */
-    /* width: 30px; */
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 80px;
 }
 
 .fav-meals li .clear{
