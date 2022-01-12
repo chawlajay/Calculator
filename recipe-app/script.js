@@ -46,3 +46,18 @@ function addMeal(mealData, random = false){
     });
     meals.appendChild(meal);
 }
+
+function addMealToLS(mealId){     // LS - local storage
+    const mealIds = getMealFromLS();
+    localStorage.setItem('mealIds',JSON.stringify([...mealIds,mealId]));
+}
+
+function removeMealFromLS(mealId){
+    const mealIds = getMealFromLS();
+    localStorage.setItem('mealIds',JSON.stringify(mealIds.filter(id => id !== mealId)));
+}
+
+function getMealFromLS(){
+    const mealIds = JSON.parse(localStorage.getItem('mealIds'));
+    return mealIds;
+}
