@@ -66,9 +66,7 @@ text-align: center;
     list-style-type:none;
     display: flex;
     padding: 0%;
-    /* flex-wrap: wrap; */
-    overflow-x: auto;
-    white-space:pre;
+    flex-wrap: wrap;
     margin-bottom: 1%;
     margin-top: 0%;
 }
@@ -76,14 +74,9 @@ text-align: center;
 .fav-meals li{
 /* background-color: whitesmoke; */
 display: inline-block;
-width: 90px;
+width: 80px;
 text-align: center;
-}
-
-::-webkit-scrollbar {
-    /* width: 0;  Remove scrollbar space */
-    display: none;
-    /* background: transparent;  Optional: just make scrollbar invisible */
+margin: 0px 5px;
 }
 
 .fav-meals li img{
@@ -97,6 +90,8 @@ text-align: center;
 
 .fav-meals li span{
     font-size: 0.65rem;
+    /* word-break: break-all; */
+    /* width: 30px; */
 }
 
 .meal{
