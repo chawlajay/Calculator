@@ -5,13 +5,32 @@
 }
 
 body{
-    background: #74ebd5;
-    background: -webkit-linear-gradient(to right, #ACB6E5, #74ebd5);
-    background: linear-gradient(to right, #cbd0e6, #5fc4b1);
+    background: #7bdaf3;
     font-family: 'Poppins', sans-serif;
     margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+}
+
+.notes{
+    background-color: #fff;
+    height: 300px;
+    width: 400px;
+}
+
+.notes .tools{
+    background-color: #9ec851;
+    display: flex;
+    justify-content: end;
+    padding: 0.5rem;
+}
+
+.notes .tools button{
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 20px;
+    margin-left: 0.5rem;
 }
