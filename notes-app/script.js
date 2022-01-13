@@ -21,8 +21,8 @@ function addNewNote(noteText = ''){
         <button class="edit"><i class="fas fa-edit"></i></button>
         <button class="delete"><i class="fas fa-trash-alt"></i></button>
     </div>
-    <div class="main hidden"></div>
-    <textarea></textarea>
+    <div class="main ${noteText ? '' : 'hidden'}"></div>
+    <textarea class="${noteText ? 'hidden' : ''}" rows="12"></textarea>
     `;
 
     const editBtn = note.querySelector(".edit");
@@ -32,6 +32,7 @@ function addNewNote(noteText = ''){
     const textArea = note.querySelector("textarea");
     
     textArea.value = noteText;
+    main.innerHTML = marked.parse(noteText);
     editBtn.addEventListener('click',(e)=>{
         // console.log(e.target);
         main.classList.toggle('hidden');
@@ -40,19 +41,20 @@ function addNewNote(noteText = ''){
     
     deleteBtn.addEventListener('click', ()=>{
         note.remove();
+        updateLS();
     });
 
     textArea.addEventListener('input',(e)=>{
         const {value} = e.target;
         main.innerHTML = marked.parse(value);
 
-        updateLS(value);
+        updateLS();
     });
 
     document.body.appendChild(note);
 }
 
-function updateLS(value){
+function updateLS(){
     const notesText = document.querySelectorAll('textarea');
     const notes = [];
 
