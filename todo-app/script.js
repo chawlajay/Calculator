@@ -13,6 +13,10 @@ form.addEventListener('submit',(e)=>{
             todoEl.classList.toggle('completed');
         });
 
+        todoEl.addEventListener('contextmenu',(e) =>{
+            e.preventDefault();
+            todoEl.remove();
+        });
         const firstItem = todos.firstChild;
         todos.insertBefore(todoEl,firstItem);
         input.value = "";
