@@ -1,17 +1,33 @@
 const form = document.getElementById("form");
 const input = document.getElementById("input");
 const todosUL = document.getElementById("todos");
+
+let todos = JSON.parse(localStorage.getItem('todos'));
+
+if(todos){
+    todos = todos.reverse();
+    todos.forEach(todo =>{
+        addTodo(todo);
+    });
+}
+
 form.addEventListener('submit',(e)=>{
     e.preventDefault();
     addTodo(); 
 });
 
-function addTodo(){
-    const todoText = input.value;
-
+function addTodo(todo){
+    let todoText = input.value;
+    if(todo){
+        todoText = todo.text;
+    }
     if(todoText){
         const todoEl = document.createElement('li');
         todoEl.innerText = todoText;
+        
+        if(todo && todo.completed){
+            todoEl.classList.add('completed');
+        }
 
         todoEl.addEventListener('click',()=>{
             todoEl.classList.toggle('completed');
