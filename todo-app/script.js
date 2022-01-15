@@ -9,7 +9,12 @@ form.addEventListener('submit',(e)=>{
         const todoEl = document.createElement('li');
         todoEl.innerText = todoText;
 
-        todos.appendChild(todoEl);
+        todoEl.addEventListener('click',()=>{
+            todoEl.classList.toggle('completed');
+        });
+
+        const firstItem = todos.firstChild;
+        todos.insertBefore(todoEl,firstItem);
         input.value = "";
     } 
 });

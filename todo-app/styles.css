@@ -35,7 +35,7 @@ form{
 }
 
 .input::placeholder{
-    color: #b5b5b5;
+    color: #d5d5d5;
 }
 
 .todos{
@@ -49,4 +49,10 @@ form{
     font-size: 1.5rem;
     padding: 1rem 2rem;
     border-top: 1px solid #e5e5e5;
+    cursor: pointer;
+}
+
+.todos li.completed {
+    text-decoration:line-through;
+    color: #b6b6b6;
 }
