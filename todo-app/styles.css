@@ -5,12 +5,32 @@
 }
 
 body{
-    background: #7bdaf3;
+    background: #f5f5f5;
     font-family: 'Poppins', sans-serif;
     margin: 0;
-    display: flex;
-    /* justify-content: center;
-    align-items: center; */
-    flex-wrap: wrap;
     min-height: 100vh;
+}
+
+h1{
+    color: rgb(179,131,226);
+    font-size: 7rem;
+    text-align: center;
+    opacity: 0.5;
+}
+
+form{
+    max-width: 100%;
+    width: 400px;
+    margin: auto;
+}
+
+.input{
+    font-size: 2rem;
+    padding: 1rem 2rem;
+    width: 100%;
+    display: block;
+}
+
+.input::placeholder{
+    color: #b5b5b5;
 }
