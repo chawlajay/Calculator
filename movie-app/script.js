@@ -3,15 +3,23 @@ const IMGPATH = "https://image.tmdb.org/t/p/w500";
 const SEARCHAPI = "https://api.themoviedb.org/3/search/movie?&api_key=04c35731a5ee918f014970082a0088b1&query=";
 
 const main = document.querySelector("main");
+const form = document.getElementById("form");
+const search = document.getElementById("search");
 
-getMovies();
+//initially get popular movies
+getMovies(APIURL);
 
-async function getMovies(){
-    const resp = await fetch(APIURL);
+async function getMovies(url){
+    const resp = await fetch(url);
     const respData = await resp.json();
     console.log(respData);
-    
-    respData.results.forEach(movie => {
+    showMovies(respData.results);
+}
+
+function showMovies(movies){
+    //clear main
+    main.innerHTML = "";
+    movies.forEach(movie => {
         const {poster_path, title, vote_average} = movie;
         const movieEl = document.createElement('div');
         movieEl.classList.add('movie');
@@ -26,8 +34,6 @@ async function getMovies(){
     
         main.appendChild(movieEl);
     });
-
-    return respData;
 }
 
 function addZero(vote_average){
@@ -42,3 +48,13 @@ function getClassByRate(vote){
     else
     return "red";
 }
+
+form.addEventListener('submit',(e)=>{
+    e.preventDefault();
+
+    const searchTerm = search.value;
+    if(searchTerm!=null){
+        getMovies(SEARCHAPI + searchTerm);
+        search.value = '';
+    }
+})
