@@ -3,6 +3,9 @@ const IMGPATH = "https://image.tmdb.org/t/p/w500";
 const SEARCHAPI = "https://api.themoviedb.org/3/search/movie?&api_key=04c35731a5ee918f014970082a0088b1&query=";
 
 const main = document.querySelector("main");
+
+getMovies();
+
 async function getMovies(){
     const resp = await fetch(APIURL);
     const respData = await resp.json();
@@ -17,7 +20,7 @@ async function getMovies(){
         <img src="${IMGPATH + poster_path}" alt="${title}">
         <div class="movie-info">
             <h3>${title}</h3>
-            <span>${Math.floor(vote_average)===vote_average ? vote_average + '.0' : vote_average}</span>
+            <span class="${getClassByRate(vote_average)}">${addZero(vote_average)}</span>
         </div>
         `;
     
@@ -27,4 +30,15 @@ async function getMovies(){
     return respData;
 }
 
-getMovies();
+function addZero(vote_average){
+return (Math.floor(vote_average)===vote_average ? vote_average + '.0' : vote_average);
+}
+
+function getClassByRate(vote){
+    if(vote >= 8)
+    return "green";
+    else if(vote >= 5)
+    return "orange";
+    else
+    return "red";
+}

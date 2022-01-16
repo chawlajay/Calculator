@@ -49,3 +49,15 @@ main{
     padding: 0.25rem 0.5rem;
     border-radius: 5px;
 }
+
+.movie-info span.green{
+    color: rgb(10, 233, 10);
+}
+
+.movie-info span.red{
+    color: rgb(223, 61, 32);
+}
+
+.movie-info span.orange{
+    color: orange;
+}
