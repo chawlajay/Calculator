@@ -48,6 +48,7 @@ main{
     border-radius: 3px;
     box-shadow: 0px 4px 15px 5px rgba(0,0,0,0.3);
     background-color: #3b3ee4;
+    position: relative;
 }
 
 .movie img {
@@ -87,3 +88,36 @@ main{
 .movie-info span.orange{
     color: orange;
 }
+
+.overview{
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    max-height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.85);
+    padding: 2rem;
+    display: none;
+    color: #fff;
+    animation: floatBubble 1s normal ease-out;
+}
+
+.overview h4{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.movie:hover .overview{
+    display: block;
+}
+
+@keyframes floatBubble {
+    0% {
+    bottom: -100%;
+    }
+    100% {
+    bottom: 0%;
+    }
+}
+
