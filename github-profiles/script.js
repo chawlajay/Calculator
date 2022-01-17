@@ -5,11 +5,19 @@ const form = document.getElementById("form");
 const search = document.getElementById("search");
 
 getUser("chawlajay");
-async function getUser(user){
-    const resp = await fetch(APIURL + user);
+async function getUser(username){
+    const resp = await fetch(APIURL + username);
     const respData = await resp.json();
 
     createUserCard(respData);
+    getRepos(username);
+}
+
+async function getRepos(username){
+    const resp = await fetch(APIURL + username + "/repos");
+    const respData = await resp.json();
+
+    addReposToCard(respData);
 }
 
 function createUserCard(user){
@@ -27,11 +35,26 @@ function createUserCard(user){
             <li>${user.following}<strong>Following</strong></li>
             <li>${user.public_repos}<strong>Repositories</strong></li>
         </ul>
+
+        <div class="repos" id="repos"></div>
     </div>
     </div>
     `;
-
+    
     main.innerHTML = cardHTML;
+}
+
+function addReposToCard(repos){
+    const reposEl = document.getElementById("repos");
+    
+    repos.forEach(repo =>{
+        const repoEl = document.createElement("a");
+        repoEl.classList.add('repo');
+        repoEl.href = repo.html_url;
+        repoEl.target = "_blank";
+        repoEl.innerHTML = repo.name;
+        reposEl.appendChild(repoEl);
+    })
 }
 
 form.addEventListener("submit",(e)=>{
