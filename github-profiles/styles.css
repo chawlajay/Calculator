@@ -5,8 +5,12 @@
 }
 
 body{
-    background: #8082ff;
+    background: #2123a3;
     font-family: 'Poppins', sans-serif;
     margin: 0;
     min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
