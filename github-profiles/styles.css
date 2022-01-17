@@ -16,12 +16,26 @@ body{
 }
 
 input{
+background-color: #1a1db4;
+border-radius: 10px;
+padding: 1rem;
+color: #fff;
+font-family: inherit;
+font-size: 1rem;
+margin-bottom: 2rem;
+outline: none;
+border: none;
+box-shadow: 0 5px 10px rgba(146, 151, 177, 0.05),
+0 15px 40px rgba(0, 0, 0, 0.2);
+}
 
+input::placeholder{
+    color: #aaa;
 }
 
 .card{
     /* background-color: #1f2080; */
-    background: linear-gradient(270deg,#1a1db4 50% ,#3637a8,#4547bd);
+    background: linear-gradient(270deg,#1a1db4,#3637a8);
     color: #eee;
     display: flex;
     padding: 3rem;
@@ -58,4 +72,5 @@ input{
     padding: 0;
     width: 300px;
     list-style-type: none;
+    max-width: 300px;
 }
