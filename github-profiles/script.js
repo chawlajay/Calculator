@@ -14,7 +14,7 @@ async function getUser(username){
 }
 
 async function getRepos(username){
-    const resp = await fetch(APIURL + username + "/repos");
+    const resp = await fetch(APIURL + username + "/repos" + "?sort=updated");
     const respData = await resp.json();
 
     addReposToCard(respData);
@@ -23,7 +23,7 @@ async function getRepos(username){
 function createUserCard(user){
     const cardHTML = `
     <div class="card">
-    <div class="img-container">
+    <div>
         <img class="avatar" src="${user.avatar_url}" alt="${user.name}">
     </div>
     <div class="user-info">
@@ -35,7 +35,7 @@ function createUserCard(user){
             <li>${user.following}<strong>Following</strong></li>
             <li>${user.public_repos}<strong>Repositories</strong></li>
         </ul>
-
+        <h4>Repos:</h4>
         <div class="repos" id="repos"></div>
     </div>
     </div>
@@ -47,14 +47,14 @@ function createUserCard(user){
 function addReposToCard(repos){
     const reposEl = document.getElementById("repos");
     
-    repos.forEach(repo =>{
+    repos.slice(0,5).forEach(repo =>{
         const repoEl = document.createElement("a");
         repoEl.classList.add('repo');
         repoEl.href = repo.html_url;
         repoEl.target = "_blank";
         repoEl.innerHTML = repo.name;
         reposEl.appendChild(repoEl);
-    })
+    });
 }
 
 form.addEventListener("submit",(e)=>{

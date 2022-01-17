@@ -45,12 +45,6 @@ input::placeholder{
     max-width: 800px;
 }
 
-.img-container{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 .avatar{
     border: 10px solid #1f2080;
     border-radius: 50%;
@@ -84,4 +78,16 @@ input::placeholder{
 .user-info ul li strong{
 font-size: 0.9rem;
 margin: 0 1.5rem 0 0.5rem;
+}
+
+.repo{
+    background-color: #1f2080;
+    display: inline-block;
+    color: white;
+    padding: 0.25rem 0.5rem;
+    text-decoration: none;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.7rem;
+    border-radius: 5px;
 }
