@@ -68,9 +68,20 @@ input::placeholder{
 
 .user-info ul{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     padding: 0;
     width: 300px;
     list-style-type: none;
-    max-width: 300px;
+    max-width: 400px;
+    margin-left: 2rem;
+}
+
+.user-info ul li{
+    display: flex;
+    align-items: center;
+}
+
+.user-info ul li strong{
+font-size: 0.9rem;
+margin: 0 1.5rem 0 0.5rem;
 }
