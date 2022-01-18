@@ -42,11 +42,19 @@ canvas{
 .toolbox input{
 margin: 0;
 padding: 0;
+background:none;
+margin-left: 1rem;
 }
 
 .toolbox #random-color{
+    border-radius: 5px;
     font-size: 1rem;
     margin-left: 1rem;
     width: auto;
     background: linear-gradient(120deg, #e34231,#339fdd,#1c7974);
+}
+
+.toolbox > :first-child{
+margin-right: auto;
+border-radius: 50%;
 }

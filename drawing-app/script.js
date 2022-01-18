@@ -6,6 +6,7 @@ const sizeEl = document.getElementById("size");
 const chooseColor = document.getElementById("color");
 const randomColorBtn = document.getElementById("random-color");
 const toolBox = document.getElementById("toolbox");
+const clearEl = document.getElementById("clear");
 
 let size = 2,x=100,y=40;
 let isPressed = false,randomColor = true,fixColor = "#000";
@@ -121,4 +122,8 @@ randomColor = false;
 
 randomColorBtn.addEventListener('click', ()=>{
 randomColor=true;
+});
+
+clearEl.addEventListener('click',()=>{
+ctx.clearRect(0,0,canvas.width,canvas.height);
 });
