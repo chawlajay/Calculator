@@ -17,7 +17,7 @@ body{
 
 canvas{
     overflow: hidden;
-    border: 1px solid #222;
+    border: 1px solid rebeccapurple;
     max-height: 100vh;
 }
 
@@ -25,6 +25,9 @@ canvas{
     background-color: rebeccapurple;
     width: 474px;
     padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .toolbox > *{
@@ -32,9 +35,19 @@ canvas{
     font-size: 2rem;
     padding: 0.25rem;
     border: none;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
     height: 50px;
     width: 50px;
+    cursor: pointer;
+}
+
+.toolbox input{
+margin: 0;
+padding: 0;
+}
+
+.toolbox #random-color{
+    font-size: 1rem;
+    margin-left: 1rem;
+    width: auto;
+    background: linear-gradient(120deg, #e34231,#339fdd,#1c7974);
 }
