@@ -7,16 +7,16 @@ const chooseColor = document.getElementById("color");
 const randomColorBtn = document.getElementById("random-color");
 const toolBox = document.getElementById("toolbox");
 
-let size = 10,x=100,y=40;
+let size = 2,x=100,y=40;
 let isPressed = false,randomColor = true,fixColor = "#000";
 let colorArray = ["#e34231","#1c7974"];
 
 setSizeCanvas(70);
-drawLine(100,100,200,200);
+// drawLine(100,100,200,200);
 canvas.addEventListener('mousemove', (e)=>{
     // console.log(e);
     if(isPressed){
-    //drawCircle(e.layerX,e.layerY);
+    drawCircle(e.layerX,e.layerY);
     drawLine(x,y,e.layerX,e.layerY);
     x=e.layerX;
     y=e.layerY;
@@ -49,6 +49,7 @@ function drawLine(x1,y1,x2,y2){
     ctx.moveTo(x1,y1);
     ctx.lineTo(x2,y2);
     ctx.strokeStyle = fixColor;
+    ctx.lineWidth = size;
     ctx.stroke();
     // ctx.stroke()
 }
@@ -75,6 +76,7 @@ function drawCircle(x,y){
     randomColorBtn.style.background = bgValue;
     // console.log(bgValue);
     ctx.fillStyle=randomColorValue;
+    fixColor=randomColorValue;
     }
     else
     ctx.fillStyle = fixColor;
@@ -88,7 +90,11 @@ function updateSize(){
 }
 
 increaseBtn.addEventListener('click', ()=>{
+    if(size>=10)
     size += 5;
+    else
+    size +=1;
+
     if(size > 50)
     size=50;
 
@@ -96,8 +102,12 @@ increaseBtn.addEventListener('click', ()=>{
 });
 
 decreaseBtn.addEventListener('click', ()=>{
+    if(size>10)
     size -= 5;
-    if(size < 5)
+    else
+    size -=1;
+
+    if(size < 2)
     size=1;
 
     updateSize();
