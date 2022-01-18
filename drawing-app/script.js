@@ -5,24 +5,34 @@ const decreaseBtn = document.getElementById("decrease");
 const sizeEl = document.getElementById("size");
 const chooseColor = document.getElementById("color");
 const randomColorBtn = document.getElementById("random-color");
+const toolBox = document.getElementById("toolbox");
 
 let size = 10,x=100,y=40;
 let isPressed = false,randomColor = true,fixColor = "#000";
 let colorArray = ["#e34231","#1c7974"];
-setSizeCanvas(70);
 
+setSizeCanvas(70);
+drawLine(100,100,200,200);
 canvas.addEventListener('mousemove', (e)=>{
     // console.log(e);
-    if(isPressed)
-    drawCircle(e.layerX,e.layerY);
+    if(isPressed){
+    //drawCircle(e.layerX,e.layerY);
+    drawLine(x,y,e.layerX,e.layerY);
+    x=e.layerX;
+    y=e.layerY;
+    }
 });
 
 canvas.addEventListener('mousedown', (e)=>{
     isPressed = true;
+    x=e.layerX;
+    y=e.layerY;
 });
 
 canvas.addEventListener('mouseup', (e)=>{
     isPressed = false;
+    x=undefined;
+    y=undefined;
 });
 
 function setSizeCanvas(percent){
@@ -30,6 +40,17 @@ function setSizeCanvas(percent){
     const vwHeight  = window.innerHeight;
     canvas.width  = Math.round(vwWidth  * percent / 100);  // integer pixels
     canvas.height = Math.round(vwHeight * percent / 100);
+    toolBox.style.width = (Math.round(2+vwWidth  * percent / 100) + "px");  // integer pixels
+    console.log(Math.round(vwWidth  * percent / 100));
+}
+
+function drawLine(x1,y1,x2,y2){
+    ctx.beginPath();
+    ctx.moveTo(x1,y1);
+    ctx.lineTo(x2,y2);
+    ctx.strokeStyle = fixColor;
+    ctx.stroke();
+    // ctx.stroke()
 }
 
 function drawCircle(x,y){

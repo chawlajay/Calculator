@@ -23,7 +23,6 @@ canvas{
 
 .toolbox{
     background-color: rebeccapurple;
-    width: 474px;
     padding: 1rem;
     display: flex;
     justify-content: center;
