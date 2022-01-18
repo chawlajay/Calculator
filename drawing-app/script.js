@@ -1,12 +1,24 @@
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
+const increaseBtn = document.getElementById("increase");
+const decreaseBtn = document.getElementById("decrease");
 
-let size = 20,x=100,y=40;
-setSizeCanvas(50);
+let size = 10,x=100,y=40;
+let isPressed = false;
+setSizeCanvas(70);
+
+canvas.addEventListener('mousemove', (e)=>{
+    // console.log(e);
+    if(isPressed)
+    drawCircle(e.layerX,e.layerY);
+});
 
 canvas.addEventListener('mousedown', (e)=>{
-    // console.log(e);
-    drawCircle(e.layerX,e.layerY);
+    isPressed = true;
+});
+
+canvas.addEventListener('mouseup', (e)=>{
+    isPressed = false;
 });
 
 function setSizeCanvas(percent){
@@ -28,26 +40,14 @@ function drawCircle(x,y){
     ctx.stroke();
 }
 
-function draw(){
-    ctx.clearRect(0,0,canvas.width,canvas.height);
-    let yChange=1,xChange=1;
+increaseBtn.addEventListener('click', ()=>{
+    size += 5;
+    if(size > 50)
+    size=50;
+});
 
-    if(yChange==1 && y==canvas.height-100)
-    yChange=-1;
-
-    if(xChange==1 && x==canvas.width-100)
-    xChange=-1;
-
-    if(yChange==-1 && y==10)
-    yChange=1;
-
-    if(xChange==-1 && x==10)
-    xChange=1;
-
-    x+=xChange;
-    y+=yChange;
-    // drawCircle(x,y);
-
-    requestAnimationFrame(draw);
-}
-// draw();
+decreaseBtn.addEventListener('click', ()=>{
+    size -= 5;
+    if(size < 5)
+    size=5;
+});
