@@ -2,6 +2,7 @@ const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 const increaseBtn = document.getElementById("increase");
 const decreaseBtn = document.getElementById("decrease");
+const sizeEl = document.getElementById("size");
 
 let size = 10,x=100,y=40;
 let isPressed = false;
@@ -44,10 +45,18 @@ increaseBtn.addEventListener('click', ()=>{
     size += 5;
     if(size > 50)
     size=50;
+
+    updateSize();
 });
 
 decreaseBtn.addEventListener('click', ()=>{
     size -= 5;
     if(size < 5)
     size=5;
+
+    updateSize();
 });
+
+function updateSize(){
+    sizeEl.innerText = size;
+}
