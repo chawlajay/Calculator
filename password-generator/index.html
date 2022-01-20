@@ -10,6 +10,34 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-<h2>Password generator</h2>
+    <div class="pw-container">
+        <div class="pw-header">
+            <div class="pw">
+                <button>Copy to Clipboard</button>
+            </div>
+        </div>
+        <div class="pw-body">
+            <div class="form-control">
+                <label for="length">Length of Password</label>
+                <input type="number" name="length" id="length">
+            </div>
+            <div class="form-control">
+                <label for="upper">Contain Uppercase letters</label>
+                <input type="checkbox" name="upper" id="upper">
+            </div>
+            <div class="form-control">
+                <label for="lower">Contain Lowercase letters</label>
+                <input type="checkbox" name="lower" id="lower">
+            </div>
+            <div class="form-control">
+                <label for="number">Contain numbers</label>
+                <input type="checkbox" name="number" id="number">
+            </div>
+            <div class="form-control">
+                <label for="symbol">Contain symbols</label>
+                <input type="checkbox" name="symbol" id="symbol">
+            </div>
+        </div>
+    </div>
 </body>
 </html>
