@@ -18,6 +18,7 @@ body{
 .pw-container{
     background-color: rgb(59, 8, 110);
     width: 400px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
 }
 
 .pw-header{
@@ -38,12 +39,12 @@ body{
     position: absolute;
     top: 0;
     right: 0;
-    background-color: rgb(126, 133, 28);
+    background-color: rgb(227, 240, 50);
     padding: 0.25rem 0.5rem;
     border: none;
     font-family: inherit;
     cursor: pointer;
-    font-weight: 700;
+    font-weight:bolder;
     transition: opacity 0.2s ease, transform 0.5s ease;
     color:rgb(59, 8, 110);
     opacity: 0;
@@ -59,9 +60,29 @@ body{
 .form-control{
     display: flex;
     justify-content: space-between;
-    margin: 0.5rem 0;
+    margin: 0.75rem 0;
+    color: #eee;
+}
+
+.form-control input[type="number"]{
+    border: none;
+    outline: none;
+    width: 20%;
 }
 
 .pw-body{
-    padding: 1rem;
+    padding: 0rem 1rem 1rem;
+}
+
+.generate{
+    display: block;
+    background-color: #ecb600;
+    color: rgb(68, 23, 114);
+    font-weight: bold;
+    padding: 0.5rem;
+    font-size: 1.5rem;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 1rem;
 }
