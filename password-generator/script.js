@@ -27,3 +27,39 @@ function getNumber(){
 function getSymbol(){
     return symbols[Math.floor(Math.random()*symbols.length)];
 }
+
+function generatePassword(){
+    const len = lengthEl.value;
+    let password = "";
+    if(len>3 && len<41){
+        for(let i=0;i<len;i++){
+            const x = generateX();
+            password += x;
+        }
+    }
+    if(password === "")
+    password = "try again..."
+    pwEl.innerText = password;
+}
+
+function generateX(){
+    const xs = [];
+    if(upperEl.checked){
+        xs.push(getUpperCase());
+    }
+
+    if(lowerEl.checked){
+        xs.push(getLowerCase());
+    }
+
+    if(numberEl.checked){
+        xs.push(getNumber());
+    }
+
+    if(symbolEl.checked){
+        xs.push(getSymbol());
+    }
+    return (xs.length ? xs[Math.floor(Math.random()*xs.length)] : "");
+}
+
+generateEl.addEventListener('click',generatePassword);

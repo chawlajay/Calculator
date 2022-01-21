@@ -27,12 +27,13 @@ body{
 
 .pw{
     background-color: rebeccapurple;
-    height: 50px;
+    height: 10%;
     width: 100%;
     display: flex;
     align-items: center;
     position: relative;
     font-size: 2rem;
+    word-break: break-all;
 }
 
 .pw button{
