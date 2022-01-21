@@ -32,7 +32,24 @@ function generatePassword(){
     const len = lengthEl.value;
     let password = "";
     if(len>3 && len<41){
-        for(let i=0;i<len;i++){
+
+        if(upperEl.checked){
+            password += getUpperCase();
+        }
+    
+        if(lowerEl.checked){
+            password += getLowerCase();
+        }
+    
+        if(numberEl.checked){
+            password += getNumber();
+          }
+    
+        if(symbolEl.checked){
+            password += getSymbol();
+        }
+
+        for(let i=password.length;i<len;i++){
             const x = generateX();
             password += x;
         }
@@ -63,3 +80,8 @@ function generateX(){
 }
 
 generateEl.addEventListener('click',generatePassword);
+
+copyEl.addEventListener('click', ()=>{
+navigator.clipboard.writeText(pwEl.innerText);
+alert("Copied the text: " + pwEl.innerText);
+});
