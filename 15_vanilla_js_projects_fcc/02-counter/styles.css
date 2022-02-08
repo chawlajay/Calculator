@@ -165,6 +165,13 @@ main {
 .container {
   text-align: center;
 }
+
+.container p{
+  font-size: 4rem;
+  font-weight: bold;
+  color: var(--clr-grey-1);
+}
+
 #value {
   font-size: 6rem;
   font-weight: bold;
