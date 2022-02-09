@@ -174,10 +174,12 @@ nav {
   transition: var(--transition);
   cursor: pointer;
 }
-.nav-toggle:hover {
+
+.rotate-bars{
   color: var(--clr-primary-1);
   transform: rotate(90deg);
 }
+
 .logo {
   height: 40px;
 }
@@ -199,9 +201,9 @@ nav {
   display: none;
 }
 .links {
-  /* height: 0;
+  height: 0;
   overflow: hidden;
-  transition: var(--transition); */
+  transition: var(--transition);
 }
 .show-links {
   height: 10rem;
