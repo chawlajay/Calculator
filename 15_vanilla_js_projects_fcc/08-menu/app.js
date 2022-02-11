@@ -71,29 +71,52 @@ const menu = [
     img: "./images/item-9.jpeg",
     desc: `skateboard fam synth authentic semiotics. Live-edge lyft af, edison bulb yuccie crucifix microdosing.`,
   },
+  {
+    id: 10,
+    title: "steak dinner",
+    category: "dinner",
+    price: 21.99,
+    img: "./images/item-10.jpeg",
+    desc: `franzen vegan pabst bicycle rights kickstarter pinterest meditation farm-to-table 90's pop-up.`,
+  }
 ];
 
 const sectionCenter = document.querySelector('.section-center');
-const filterBtns = document.querySelectorAll(".filter-btn");
+const btnContainer = document.querySelector('.btn-container');
 
 window.addEventListener('DOMContentLoaded',()=>{
   displayMenuItems(menu);
+  displayMenuButtons();
 });
 
-filterBtns.forEach((btn)=>{
-  btn.addEventListener('click',(e)=>{
-    const category = e.currentTarget.dataset.id;
-    console.log(category);
-    const menuCategory = menu.filter(function(menuItem){
-      if(category=="all" || menuItem.category==category)
-      return menuItem;
-      
-      return
+function displayMenuButtons(){
+  const categories = menu.reduce(function(values,item){
+    if(!values.includes(item.category))
+    values.push(item.category);
+    return values;
+  },['all']);
+  const categoryBtns = categories.map(function(category){
+    return `<button class="filter-btn" type="button" data-id=${category}>${category}</button>`;
+  }).join("");
+  
+  btnContainer.innerHTML = categoryBtns;
+  const filterBtns = document.querySelectorAll(".filter-btn");
+
+  filterBtns.forEach((btn)=>{
+    btn.addEventListener('click',(e)=>{
+      const category = e.currentTarget.dataset.id;
+      console.log(category);
+      const menuCategory = menu.filter(function(menuItem){
+        if(category=="all" || menuItem.category==category)
+        return menuItem;
+        
+        return
+      });
+      console.log(menuCategory);
+      displayMenuItems(menuCategory);
     });
-    console.log(menuCategory);
-    displayMenuItems(menuCategory);
   });
-});
+}
 
 function displayMenuItems(menuItems){
   let displayMenu = menuItems.map((item)=>{
