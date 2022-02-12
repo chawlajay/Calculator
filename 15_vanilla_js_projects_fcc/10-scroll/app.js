@@ -10,6 +10,8 @@ date.innerHTML = new Date().getFullYear();
 const navToggle = document.querySelector(".nav-toggle");
 const linksContainer = document.querySelector(".links-container");
 const links = document.querySelector(".links");
+const navbar = document.querySelector("#nav");
+const topLink = document.querySelector(".top-link");
 
 navToggle.addEventListener('click',()=>{
     // linksContainer.classList.toggle('show-links');
@@ -22,6 +24,18 @@ navToggle.addEventListener('click',()=>{
     console.log(linksContainer.style.height);
 });
 // ********** fixed navbar ************
+window.addEventListener('scroll',()=>{
+    const navHeight = navbar.getBoundingClientRect().height;
+    const scrollHeight = window.pageYOffset;
+    if(scrollHeight > navHeight)
+        navbar.classList.add("fixed-nav");
+    else
+        navbar.classList.remove("fixed-nav");
 
+    if(scrollHeight > 500)
+    topLink.classList.add("show-link");
+    else
+    topLink.classList.remove("show-link");
+})
 // ********** smooth scroll ************
 // select links
