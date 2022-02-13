@@ -206,6 +206,11 @@ Countdown Timer
 .gift-info p {
   margin: 2rem 0;
 }
+
+.giveaway{
+  letter-spacing: 0.2rem;
+}
+
 .deadline {
   display: flex;
 }
