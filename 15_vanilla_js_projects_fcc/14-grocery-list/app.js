@@ -19,7 +19,28 @@ function addItem(e){
     const id = new Date().getTime().toString();
 
     if(value && !editFlag){
-        console.log("add item to list");
+        const element = document.createElement("article");
+        element.classList.add("grocery-item");
+        const attr = document.createAttribute("data-id");
+        attr.value = id;
+        element.setAttributeNode(attr);
+        element.innerHTML = `
+            <p class="title">${value}</p>
+            <div class="btn-container">
+            <button type="button" class="edit-btn">
+                <i class="fas fa-edit"></i>
+            </button>
+            <button type="button" class="delete-btn">
+                <i class="fas fa-trash"></i>
+            </button>
+            </div>
+        `;
+        list.appendChild(element);
+        displayAlert("item added to the list","success");
+        container.classList.add("show-container");
+
+        addToLocalStorage(id,value);
+        setBackToDefault();
     }
     else if(value && editFlag){
         console.log("editing");
@@ -36,8 +57,15 @@ function displayAlert(text,action){
     setTimeout(function(){
         alert.textContent = '';
         alert.classList.remove(`alert-${action}`);
-    },1000);
+    },2000);
 }
-// ****** LOCAL STORAGE **********
 
+function setBackToDefault(){
+    console.log("set back to default");
+}
+
+// ****** LOCAL STORAGE **********
+function addToLocalStorage(id,value){
+console.log("add to local storage");
+}
 // ****** SETUP ITEMS **********
