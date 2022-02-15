@@ -89,7 +89,7 @@ function deleteItem(e){
     }
     displayAlert("item removed","danger");
     setBackToDefault();
-    // removeFromLocalStorage(id);
+    removeFromLocalStorage(id);
 }
 
 function clearItems(){
@@ -102,7 +102,7 @@ function clearItems(){
     container.classList.remove("show-container");
     displayAlert("List is now empty","danger");
     setBackToDefault();
-    //localStorage.removeItem('grocery-list');
+    localStorage.removeItem('grocery-list');
 }
 
 function setBackToDefault(){
@@ -114,14 +114,29 @@ function setBackToDefault(){
 
 // ****** LOCAL STORAGE **********
 function addToLocalStorage(id,value){
-console.log("add to local storage");
+ const grocery = {id, value};
+ let items = getListFromLocalStorage();
+ 
+ items.push(grocery);
+ localStorage.setItem('grocery-list',JSON.stringify(items));
 }
 
 function removeFromLocalStorage(id){
-
+    let items = getListFromLocalStorage();
+    items = items.filter((item)=> item.id != id);
+    localStorage.setItem('grocery-list',JSON.stringify(items));
 }
 
 function editLocalStorage(id,value){
-     
+    let items = getListFromLocalStorage();
+    items.forEach((item)=>{
+        if(item.id === id)
+        item.value = value;
+    });
+    localStorage.setItem('grocery-list',JSON.stringify(items));
+}
+
+function getListFromLocalStorage(){
+    return localStorage.getItem('grocery-list') ? JSON.parse(localStorage.getItem('grocery-list')) : [];
 }
 // ****** SETUP ITEMS **********
