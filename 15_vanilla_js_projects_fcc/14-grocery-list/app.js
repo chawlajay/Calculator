@@ -51,7 +51,10 @@ function addItem(e){
         setBackToDefault();
     }
     else if(value && editFlag){
-        console.log("editing");
+        editElement.innerHTML = grocery.value;
+        displayAlert("value changed","success");
+        editLocalStorage(editId,value);
+        setBackToDefault();
     }
     else{
         displayAlert("please enter value","danger")
@@ -68,12 +71,18 @@ function displayAlert(text,action){
     },2000);
 }
 
-function editItem(){
-    console.log("edit item");
+function editItem(e){
+    const element = e.currentTarget.parentElement.parentElement;
+    editId = element.dataset.id;
+    editElement = e.currentTarget.parentElement.previousElementSibling;
+    grocery.value = editElement.innerHTML;
+    editFlag = true;
+    submitBtn.textContent = "edit";
 }
 
 function deleteItem(e){
     const element = e.currentTarget.parentElement.parentElement;
+    const id = element.dataset.id;
     list.removeChild(element);
     if(list.children.length == 0){
         container.classList.remove("show-container");
@@ -106,5 +115,13 @@ function setBackToDefault(){
 // ****** LOCAL STORAGE **********
 function addToLocalStorage(id,value){
 console.log("add to local storage");
+}
+
+function removeFromLocalStorage(id){
+
+}
+
+function editLocalStorage(id,value){
+     
 }
 // ****** SETUP ITEMS **********
