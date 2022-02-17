@@ -5,6 +5,9 @@
 }
 
 body{
+    background-color: rebeccapurple;
+    color: white;
+    font-size: 3rem;
     font-family: 'Poppins', sans-serif;
     margin: 0;
     display: flex;
