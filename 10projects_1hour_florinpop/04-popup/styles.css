@@ -12,3 +12,54 @@ body{
     justify-content: center;
     min-height: 100vh;
 }
+
+button{
+    background-color: rebeccapurple;
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 5px;
+    border: none;
+    font-family: inherit;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.popup-container{
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.5);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hide-element{
+    visibility: hidden;
+}
+
+.popup{
+    background-color: #dfdfdf;
+    padding: 2rem;
+    width: 500px;
+    border-radius: 5px;
+    box-shadow: 3px 5px 15px rgba(0,0,0,0.3);
+    position: relative;
+}
+
+.popup button{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: white;
+    color: rebeccapurple;
+    font-size: 2rem;
+    padding: 0rem 0.15rem;
+    height: 25px;
+    width: 25px;
+    display: flex;
+    align-items: center;
+}
