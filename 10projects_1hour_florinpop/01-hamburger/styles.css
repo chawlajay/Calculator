@@ -2,6 +2,7 @@
 
 * {
     box-sizing: border-box;
+    transition: all 0.3s ease-in-out;
 }
 
 body{
@@ -18,10 +19,12 @@ button{
     border: none;
     color: white;
     position: fixed;
-    top: 1rem;
+    top: 0.5rem;
     right: 1rem;
     padding: 0rem 0.5rem;
     font-size: 2rem;
+    cursor: pointer;
+    z-index: 1;
 }
 
 nav{
@@ -40,7 +43,7 @@ nav.active{
 
 nav ul{
     padding: 0;
-    margin: 0;
+    margin: 1.5rem 0;
     list-style-type: none;
 }
 
