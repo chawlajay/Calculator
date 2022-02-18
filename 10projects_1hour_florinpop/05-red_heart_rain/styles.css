@@ -11,4 +11,19 @@ body{
     align-items: center;
     justify-content: center;
     min-height: 100vh;
+    background-color: rgba(235, 235, 175, 0.5);
+}
+
+.heart{
+    position: fixed;
+    top: -1vh;
+    transform: translateY(-100%);
+    animation: fall 3s linear forwards;
+    font-size: 2rem;
+}
+
+@keyframes fall{
+    to{
+        transform: translateY(105vh);
+    }
 }
