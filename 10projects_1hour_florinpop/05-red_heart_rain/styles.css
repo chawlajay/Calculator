@@ -49,6 +49,10 @@ color: white;
 margin: 0;
 }
 
+.timesBtn{
+    transform: translateX(-100%);
+}
+
 .menu{
     display: flex;
     flex-direction: column;

@@ -11,6 +11,9 @@ let color="red",randomColor=false, spinHearts=false, beatingHearts=false;
 
 rightArrowBtn.addEventListener("click",()=>{
     container.classList.toggle("hidden");
+    rightArrowBtn.children[0].classList.toggle("fa-chevron-right");
+    rightArrowBtn.children[0].classList.toggle("fa-times");
+    // rightArrowBtn.classList.toggle("timesBtn");
 });
 
 colorBtn.addEventListener('click',function(){
