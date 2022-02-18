@@ -23,6 +23,54 @@ body{
     color: red;
 }
 
+.container{
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translateX(0);
+    transition: transform 0.5s ease-in;
+    background-color: aqua;
+}
+
+#rightArrowBtn{
+position: absolute;
+top: 0;
+right: 0;
+transform: translateX(100%);
+border-radius: 0;
+background-color: aqua;
+color: black;
+margin: 0;
+}
+
+.menu{
+    display: flex;
+    flex-direction: column;
+
+    margin: 2rem 1rem;
+}
+
+.hidden{
+    /* transform: translateX(-100%); */
+}
+
+.btn{
+    width: fit-content;
+    margin: 0.5rem 0rem;
+    cursor:pointer;
+    border: none;
+    font-size: 1.25rem;
+    padding: 0.5rem;
+    border-radius: 3px;
+    background-color: rebeccapurple;
+    color: white;
+}
+
+.btn:active:not(#rightArrowBtn){
+    color: black;
+    background-color: aqua;
+}
+
 @keyframes fall{
     to{
         transform: translateY(105vh);
