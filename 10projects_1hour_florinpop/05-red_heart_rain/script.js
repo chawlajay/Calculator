@@ -7,7 +7,7 @@ const spinBtn = document.getElementById("spinBtn");
 const beatingBtn = document.getElementById("beatingBtn");
 const selectMenu = document.querySelector("select");
 const container = document.querySelector(".container");
-let randomColor=false, spinHearts=false, beatingHearts=false;
+let color="red",randomColor=false, spinHearts=false, beatingHearts=false;
 
 rightArrowBtn.addEventListener("click",()=>{
     container.classList.toggle("hidden");
@@ -25,6 +25,11 @@ beatingBtn.addEventListener("click",()=>{
     beatingHearts = !beatingHearts;
 });
 
+selectMenu.addEventListener("change",()=>{
+    color = selectMenu.value;
+    randomColor=false;
+})
+
 function createHeart(){
     const heart = document.createElement("div");
     const heartIcon = document.createElement("i");
@@ -38,7 +43,6 @@ function createHeart(){
     heart.style.left = Math.random() * 100 + "vw";
     heart.style.animationDuration = Math.random()*2 + 3 + "s";
 
-    let color="red";
     if(randomColor)
     color = generateRandomColor();
 
@@ -68,4 +72,18 @@ function generateRandomColor(){
     return new_color;
 }
 
+function addColorOptions(){
+    for(let colorName in allCssColors){
+        let option = document.createElement("option");
+        option.value = colorName;
+        option.innerText = colorName;
+
+        if(colorName == "red")
+            option.setAttribute("selected","true");
+        
+        selectMenu.appendChild(option);
+    }
+}
+
+addColorOptions();
 setInterval(createHeart,500);
