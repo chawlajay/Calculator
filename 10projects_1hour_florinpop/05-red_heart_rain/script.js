@@ -5,7 +5,7 @@ const spinBtn = document.getElementById("spinBtn");
 const beatingBtn = document.getElementById("beatingBtn");
 const selectMenu = document.querySelector("select");
 const container = document.querySelector(".container");
-let heartClassEl;
+let color="red";
 
 rightArrowBtn.addEventListener("click",()=>{
     container.classList.toggle("hidden");
@@ -16,7 +16,7 @@ colorBtn.addEventListener('click',function(){
     for(let i=0;i<6;i++)
     new_color += hex[Math.floor(Math.random()*hex.length)];
 
-    heartClassEl.style.color = new_color;
+    color = new_color;
 });
 
 function createHeart(){
@@ -30,9 +30,9 @@ function createHeart(){
     heart.style.left = Math.random() * 100 + "vw";
     heart.style.animationDuration = Math.random()*2 + 3 + "s";
     heart.style.color = color;
-    document.body.appendChild(heart);
 
-    heartClassEl = document.querySelector(".heart");
+    document.body.appendChild(heart);
+    
     setTimeout(()=>{
         heart.remove();
     },5000);
