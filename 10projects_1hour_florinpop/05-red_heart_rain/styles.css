@@ -23,13 +23,16 @@ body{
     color: red;
 }
 
+.spin{
+    animation: spinHeart 1s infinite ease-in-out;
+}
+
 .container{
     position: fixed;
     top: 0;
     left: 0;
     transform: translateX(0);
     transition: transform 0.5s ease-in;
-    background-color: aqua;
 }
 
 #rightArrowBtn{
@@ -38,8 +41,7 @@ top: 0;
 right: 0;
 transform: translateX(100%);
 border-radius: 0;
-background-color: aqua;
-color: black;
+color: white;
 margin: 0;
 }
 
@@ -73,5 +75,14 @@ margin: 0;
 @keyframes fall{
     to{
         transform: translateY(105vh);
+    }
+}
+
+@keyframes spinHeart {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
     }
 }
