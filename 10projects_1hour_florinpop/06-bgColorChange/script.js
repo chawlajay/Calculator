@@ -1,7 +1,10 @@
 const btn = document.getElementById("btn");
+const color = document.getElementById("color");
 
 btn.addEventListener("click",()=>{
-    document.body.style.backgroundColor = randomBg();
+    let text = randomBg();
+    document.body.style.backgroundColor = text;
+    color.innerText=text;
 });
 
 function randomBg(){
