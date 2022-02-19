@@ -8,3 +8,7 @@
 2. Date: Friday, 18th February, 2022
 - create rain heart project
 - add my own creativity to hearts
+
+3. Date: Saturday, 19th February, 2022
+- create background color change, dark mode toggle, carousel, sound board & zoom effect project
+- done 10/10 projects in challenge
