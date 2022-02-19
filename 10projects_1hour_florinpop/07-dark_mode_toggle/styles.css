@@ -14,4 +14,34 @@ body{
     align-items: center;
     justify-content: center;
     min-height: 100vh;
+    transition: background 0.5s linear;
+}
+
+body.dark{
+    background-color: #1f1f1f;
+    color: white;
+}
+
+label{
+    user-select: none;
+    cursor: pointer;
+    background-color: rebeccapurple;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+body.dark label{
+    background-color: white;
+}
+
+.toggle-container{
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+input{
+    visibility: hidden;
 }
