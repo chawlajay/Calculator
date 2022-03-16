@@ -5,7 +5,7 @@
 - add base project as starter files for all projects
 - create hamburger, toast notification, auto-write text, popup projects
 
-2. Date: Friday, 18th February, 2022
+**2. Date: Friday, 18th February, 2022**
 - create rain heart project
 - add my own creativity to hearts
 
